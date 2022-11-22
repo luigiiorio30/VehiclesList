@@ -4,7 +4,6 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.vehichleslist.BaseApplication
 import com.example.vehichleslist.model.Cars
 
 
@@ -13,6 +12,7 @@ abstract class CarDatabase : RoomDatabase() {
     abstract fun carsDao(): CarsDao
 
     companion object {
+        @Volatile
         private var INSTANCE: CarDatabase? = null
 
         fun getDatabase(context: Context): CarDatabase {

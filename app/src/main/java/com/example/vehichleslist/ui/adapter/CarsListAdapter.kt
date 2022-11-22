@@ -16,8 +16,8 @@ class CarsListAdapter(
         private var binding: ListItemCarBinding
     ): RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(forageable: Cars) {
-            binding.cars = forageable
+        fun bind(cars: Cars) {
+            binding.cars = cars
             binding.executePendingBindings()
         }
     }

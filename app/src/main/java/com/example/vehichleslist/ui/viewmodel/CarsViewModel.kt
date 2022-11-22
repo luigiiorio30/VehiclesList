@@ -17,7 +17,6 @@ class CarsViewModel(
 
 
     fun addCars(
-        id: Long,
         name: String,
         model: String,
         age: String,
@@ -25,7 +24,6 @@ class CarsViewModel(
         price: String
     ) {
         val cars = Cars(
-            id = id,
             name = name,
             model = model,
             age = age,
@@ -70,9 +68,6 @@ class CarsViewModel(
         return name.isNotBlank() && model.isNotBlank()
     }
 
-    fun addCars(id: String, name: String, model: String, age: String, type: String) {
-
-    }
 }
 
 class CarsViewModelFactory(private val carsDao: CarsDao): ViewModelProvider.Factory{

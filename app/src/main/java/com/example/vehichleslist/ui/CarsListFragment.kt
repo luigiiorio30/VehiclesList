@@ -38,6 +38,7 @@ class CarsListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
         val adapter = CarsListAdapter { cars ->
             val action = CarsListFragmentDirections
                 .actionCarsListFragmentToCarsDetailFragment(cars.id)

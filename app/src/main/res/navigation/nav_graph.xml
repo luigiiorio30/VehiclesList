@@ -25,7 +25,8 @@
         tools:layout="@layout/fragment_add_car" >
         <argument
             android:name="id"
-            app:argType="long" />
+            app:argType="long"
+            android:defaultValue="0L" />
         <action
             android:id="@+id/action_addCarsFragment_to_CarsListFragment"
             app:destination="@id/carsListFragment" />
