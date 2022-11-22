@@ -20,9 +20,9 @@ class CarsViewModel(
         id: Long,
         name: String,
         model: String,
-        age: Int,
+        age: String,
         type: String,
-        price: Int
+        price: String
     ) {
         val cars = Cars(
             id = id,
@@ -43,9 +43,9 @@ class CarsViewModel(
         id: Long,
         name: String,
         model: String,
-        age: Int,
+        age: String,
         type: String,
-        price: Int
+        price: String
     ) {
         val cars = Cars(
             id = id,

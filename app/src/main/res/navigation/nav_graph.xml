@@ -4,14 +4,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/CarsListFragment">
+    app:startDestination="@id/carsListFragment">
 
     <fragment
-        android:id="@+id/CarsListFragment"
+        android:id="@+id/carsListFragment"
         android:name="com.example.vehichleslist.ui.CarsListFragment"
         android:label="Veichles" >
         <action
-            android:id="@+id/action_CarsListFragment_to_placeholder"
+            android:id="@+id/action_CarsListFragment_to_carsDetailFragment"
             app:destination="@id/carsDetailFragment" />
         <action
             android:id="@+id/action_CarsListFragment_to_addCarsFragment"
@@ -25,11 +25,10 @@
         tools:layout="@layout/fragment_add_car" >
         <argument
             android:name="id"
-            app:argType="long"
-            android:defaultValue="0L" />
+            app:argType="long" />
         <action
             android:id="@+id/action_addCarsFragment_to_CarsListFragment"
-            app:destination="@id/CarsListFragment" />
+            app:destination="@id/carsListFragment" />
     </fragment>
     <fragment
         android:id="@+id/carsDetailFragment"
@@ -39,5 +38,9 @@
         <action
             android:id="@+id/action_carsDetailFragment_to_addCarsFragment"
             app:destination="@id/addCarsFragment" />
+        <argument
+            android:name="id"
+            app:argType="long"
+            android:defaultValue="0L" />
     </fragment>
 </navigation>
