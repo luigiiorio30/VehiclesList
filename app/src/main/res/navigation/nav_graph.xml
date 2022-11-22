@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/CarsListFragment">
+
+    <fragment
+        android:id="@+id/CarsListFragment"
+        android:name="com.example.vehichleslist.ui.CarsListFragment"
+        android:label="Veichles" >
+        <action
+            android:id="@+id/action_CarsListFragment_to_placeholder"
+            app:destination="@id/carsDetailFragment" />
+        <action
+            android:id="@+id/action_CarsListFragment_to_addCarsFragment"
+            app:destination="@id/addCarsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addCarsFragment"
+        android:name="com.example.vehichleslist.ui.AddCarsFragment"
+        android:label="Vehicles"
+        tools:layout="@layout/fragment_add_car" >
+        <argument
+            android:name="id"
+            app:argType="long"
+            android:defaultValue="0L" />
+        <action
+            android:id="@+id/action_addCarsFragment_to_CarsListFragment"
+            app:destination="@id/CarsListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/carsDetailFragment"
+        android:name="com.example.vehichleslist.ui.CarsDetailFragment"
+        android:label="Cars"
+        tools:layout="@layout/fragment_cars_detail">
+        <action
+            android:id="@+id/action_carsDetailFragment_to_addCarsFragment"
+            app:destination="@id/addCarsFragment" />
+    </fragment>
+</navigation>

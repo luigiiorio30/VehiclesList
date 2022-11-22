@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">VehichlesList</string>
+    <string name="cars_name">Brand</string>
+    <string name="cars_model">Model</string>
+    <string name="age">Age of production</string>
+    <string name="type_cars">Types</string>
+    <string name="price_value">Price (in euros)</string>
+    <string name="save">Save</string>
+    <string name="delete">Delete</string>
+    <string name="add">Add</string>
+</resources>
