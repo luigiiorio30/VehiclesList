@@ -12,6 +12,7 @@ data class Cars(
     @ColumnInfo(name = "model") val model: String,
     @ColumnInfo(name = "age") val age: String,
     @ColumnInfo(name = "type") val type: String,
+    @ColumnInfo(name = "fuel") val fuel: String,
 )
 
 //fun Cars.getFormattedPrice(): String = NumberFormat.getCurrencyInstance().format(price)

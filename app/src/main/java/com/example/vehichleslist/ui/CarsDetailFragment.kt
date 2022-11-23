@@ -53,6 +53,7 @@ class CarsDetailFragment : Fragment() {
             model.text = cars.model
             age.text = cars.age
             type.text = cars.type
+            fuel.text = cars.fuel
 
             editCarsFab.setOnClickListener {
                 val action = CarsDetailFragmentDirections

@@ -79,6 +79,7 @@ class AddCarsFragment : Fragment() {
                 binding.modelInput.text.toString(),
                 binding.ageInput.text.toString(),
                 binding.typeInput.text.toString(),
+                binding.fuelInput.text.toString(),
             )
                 findNavController().navigate(
                     R.id.action_addCarsFragment_to_CarsListFragment
@@ -94,6 +95,7 @@ class AddCarsFragment : Fragment() {
                 model = binding.modelInput.text.toString(),
                 age = binding.ageInput.text.toString(),
                 type = binding.typeInput.text.toString(),
+                fuel = binding.fuelInput.text.toString(),
             )
             findNavController().navigate(
                 R.id.action_addCarsFragment_to_CarsListFragment
@@ -107,6 +109,7 @@ class AddCarsFragment : Fragment() {
             modelInput.setText(cars.model, TextView.BufferType.SPANNABLE)
             ageInput.setText(cars.age, TextView.BufferType.SPANNABLE)
             typeInput.setText(cars.type, TextView.BufferType.SPANNABLE)
+            fuelInput.setText(cars.fuel, TextView.BufferType.SPANNABLE)
             saveBtn.setOnClickListener {
                 updateCars()
             }
