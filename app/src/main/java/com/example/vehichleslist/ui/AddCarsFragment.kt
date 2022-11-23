@@ -80,6 +80,9 @@ class AddCarsFragment : Fragment() {
                 binding.ageInput.text.toString(),
                 binding.typeInput.text.toString(),
                 binding.fuelInput.text.toString(),
+                binding.chilometerInput.text.toString(),
+                binding.licenseInput.text.toString(),
+                binding.displacementInput.text.toString()
             )
                 findNavController().navigate(
                     R.id.action_addCarsFragment_to_CarsListFragment
@@ -96,6 +99,9 @@ class AddCarsFragment : Fragment() {
                 age = binding.ageInput.text.toString(),
                 type = binding.typeInput.text.toString(),
                 fuel = binding.fuelInput.text.toString(),
+                chilom = binding.chilometerInput.text.toString(),
+                license = binding.licenseInput.text.toString(),
+                displac = binding.displacementInput.text.toString()
             )
             findNavController().navigate(
                 R.id.action_addCarsFragment_to_CarsListFragment
@@ -110,6 +116,9 @@ class AddCarsFragment : Fragment() {
             ageInput.setText(cars.age, TextView.BufferType.SPANNABLE)
             typeInput.setText(cars.type, TextView.BufferType.SPANNABLE)
             fuelInput.setText(cars.fuel, TextView.BufferType.SPANNABLE)
+            chilometerInput.setText(cars.chilom, TextView.BufferType.SPANNABLE)
+            licenseInput.setText(cars.license, TextView.BufferType.SPANNABLE)
+            displacementInput.setText(cars.displac, TextView.BufferType.SPANNABLE)
             saveBtn.setOnClickListener {
                 updateCars()
             }

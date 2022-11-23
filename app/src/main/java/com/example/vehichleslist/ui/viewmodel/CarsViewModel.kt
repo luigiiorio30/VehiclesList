@@ -21,7 +21,10 @@ class CarsViewModel(
         model: String,
         age: String,
         type: String,
-        fuel: String
+        fuel: String,
+        chilom: String,
+        license: String,
+        displac: String
     ) {
         val cars = Cars(
             name = name,
@@ -29,6 +32,9 @@ class CarsViewModel(
             age = age,
             type = type,
             fuel = fuel,
+            chilom = chilom,
+            license = license,
+            displac = displac
         )
 
         viewModelScope.launch(Dispatchers.IO){
@@ -44,6 +50,9 @@ class CarsViewModel(
         age: String,
         type: String,
         fuel: String,
+        chilom: String,
+        license: String,
+        displac: String
     ) {
         val cars = Cars(
             id = id,
@@ -52,6 +61,9 @@ class CarsViewModel(
             age = age,
             type = type,
             fuel = fuel,
+            chilom = chilom,
+            license = license,
+            displac = displac
         )
         viewModelScope.launch(Dispatchers.IO) {
             carsDao.update(cars)

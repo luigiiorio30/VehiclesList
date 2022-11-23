@@ -21,6 +21,7 @@
         android:id="@+id/ic_model"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
         android:src="@drawable/ic_car"
         android:layout_margin="16dp"
         app:layout_constraintTop_toBottomOf="@id/name"
@@ -86,17 +87,14 @@
 
     <TextView
         android:id="@+id/type"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ellipsize="end"
-        android:maxLines="6"
         android:layout_marginStart="8dp"
-        android:layout_marginEnd="16dp"
         android:singleLine="false"
         android:textAppearance="?attr/textAppearanceBody2"
-        app:layout_constraintStart_toEndOf="@id/ic_type"
         app:layout_constraintTop_toTopOf="@+id/ic_type"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/ic_type"
+        app:layout_constraintStart_toEndOf="@id/ic_type"
         tools:text="Type" />
 
     <View
@@ -119,18 +117,102 @@
 
     <TextView
         android:id="@+id/fuel"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ellipsize="end"
-        android:maxLines="6"
         android:layout_marginStart="8dp"
-        android:layout_marginEnd="16dp"
-        android:singleLine="false"
         android:textAppearance="?attr/textAppearanceBody2"
-        app:layout_constraintStart_toEndOf="@id/ic_fuel"
         app:layout_constraintTop_toTopOf="@+id/ic_fuel"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/ic_fuel"
+        app:layout_constraintStart_toEndOf="@id/ic_fuel"
         tools:text="Fuel type" />
+
+    <View
+    android:id="@+id/divider_fuel"
+    android:layout_width="match_parent"
+    android:layout_height="1dp"
+    android:background="?attr/dividerHorizontal"
+    android:layout_margin="16dp"
+    app:layout_constraintTop_toBottomOf="@id/ic_fuel"
+    app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/ic_chilom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_chilometer"
+        android:layout_margin="16dp"
+        app:layout_constraintTop_toBottomOf="@id/divider_fuel"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/chilometer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textAppearance="?attr/textAppearanceBody2"
+        app:layout_constraintTop_toTopOf="@+id/ic_chilom"
+        app:layout_constraintBottom_toBottomOf="@id/ic_chilom"
+        app:layout_constraintStart_toEndOf="@id/ic_chilom"
+        tools:text="Chilometer" />
+
+    <View
+        android:id="@+id/divider_chilom"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?attr/dividerHorizontal"
+        android:layout_margin="16dp"
+        app:layout_constraintTop_toBottomOf="@id/ic_chilom"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/ic_license_plate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_license_plate"
+        android:layout_margin="16dp"
+        app:layout_constraintTop_toBottomOf="@id/divider_chilom"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/license_plate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textAppearance="?attr/textAppearanceBody2"
+        app:layout_constraintTop_toTopOf="@+id/ic_license_plate"
+        android:textAllCaps="true"
+        app:layout_constraintBottom_toBottomOf="@id/ic_license_plate"
+        app:layout_constraintStart_toEndOf="@id/ic_license_plate"
+        tools:text="License plate" />
+
+    <View
+        android:id="@+id/divider_plate"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?attr/dividerHorizontal"
+        android:layout_margin="16dp"
+        app:layout_constraintTop_toBottomOf="@id/ic_license_plate"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/ic_displacement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_piston"
+        android:layout_margin="16dp"
+        app:layout_constraintTop_toBottomOf="@id/divider_plate"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/displacement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textAppearance="?attr/textAppearanceBody2"
+        app:layout_constraintTop_toTopOf="@+id/ic_displacement"
+        app:layout_constraintBottom_toBottomOf="@id/ic_displacement"
+        app:layout_constraintStart_toEndOf="@id/ic_displacement"
+        tools:text="Displacement" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/edit_cars_fab"
@@ -141,5 +223,6 @@
         android:src="@drawable/ic_build"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

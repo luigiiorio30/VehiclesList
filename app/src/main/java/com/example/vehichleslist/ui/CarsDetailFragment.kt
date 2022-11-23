@@ -1,5 +1,6 @@
 package com.example.vehichleslist.ui
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.vehichleslist.BaseApplication
+import com.example.vehichleslist.R
 import com.example.vehichleslist.databinding.FragmentCarsDetailBinding
 import com.example.vehichleslist.model.Cars
 import com.example.vehichleslist.ui.viewmodel.CarsViewModel
@@ -47,14 +49,17 @@ class CarsDetailFragment : Fragment() {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private fun bindCars() {
         binding.apply {
             name.text = cars.name
-            model.text = cars.model
-            age.text = cars.age
-            type.text = cars.type
-            fuel.text = cars.fuel
-
+            model.text = "Model: " + cars.model
+            age.text = "Age of production: " + cars.age
+            type.text = "Model: " + cars.type
+            fuel.text = "Type of fuel: " + cars.fuel
+            chilometer.text = "Total chilometer: " + cars.chilom + " km"
+            licensePlate.text = "License plate: " +  cars.license
+            displacement.text = "Displacement: " + cars.displac + " cm^3"
             editCarsFab.setOnClickListener {
                 val action = CarsDetailFragmentDirections
                     .actionCarsDetailFragmentToAddCarsFragment(cars.id)
