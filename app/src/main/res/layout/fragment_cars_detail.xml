@@ -10,6 +10,7 @@
         android:id="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textAllCaps="true"
         android:layout_margin="16dp"
         android:textAppearance="?attr/textAppearanceHeadline6"
         app:layout_constraintTop_toTopOf="parent"
@@ -34,7 +35,7 @@
         app:layout_constraintTop_toTopOf="@id/ic_model"
         app:layout_constraintBottom_toBottomOf="@id/ic_model"
         app:layout_constraintStart_toEndOf="@id/ic_model"
-        tools:text="Model"/>
+        tools:text="Model" />
 
     <View
         android:id="@+id/divider_model"
@@ -89,6 +90,7 @@
         android:layout_height="wrap_content"
         android:ellipsize="end"
         android:maxLines="6"
+        android:inputType = "textCapWords"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="16dp"
         android:singleLine="false"
@@ -107,29 +109,6 @@
         app:layout_constraintTop_toBottomOf="@id/ic_type"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageView
-        android:id="@+id/ic_price"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_euro"
-        android:layout_margin="16dp"
-        app:layout_constraintTop_toBottomOf="@id/divider_type"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/price"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:ellipsize="end"
-        android:maxLines="6"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="16dp"
-        android:singleLine="false"
-        android:textAppearance="?attr/textAppearanceBody2"
-        app:layout_constraintStart_toEndOf="@id/ic_price"
-        app:layout_constraintTop_toTopOf="@+id/ic_price"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:text="Price" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/edit_cars_fab"

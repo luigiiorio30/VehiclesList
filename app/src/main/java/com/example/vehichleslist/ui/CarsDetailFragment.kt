@@ -34,7 +34,6 @@ class CarsDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentCarsDetailBinding.inflate(inflater, container, false)
-        // Inflate the layout for this fragment
         return binding.root
     }
 
@@ -54,7 +53,6 @@ class CarsDetailFragment : Fragment() {
             model.text = cars.model
             age.text = cars.age
             type.text = cars.type
-            price.text = cars.price
 
             editCarsFab.setOnClickListener {
                 val action = CarsDetailFragmentDirections

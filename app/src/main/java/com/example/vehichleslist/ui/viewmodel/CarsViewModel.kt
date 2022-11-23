@@ -20,15 +20,13 @@ class CarsViewModel(
         name: String,
         model: String,
         age: String,
-        type: String,
-        price: String
+        type: String
     ) {
         val cars = Cars(
             name = name,
             model = model,
             age = age,
             type = type,
-            price = price
         )
 
         viewModelScope.launch(Dispatchers.IO){
@@ -42,8 +40,7 @@ class CarsViewModel(
         name: String,
         model: String,
         age: String,
-        type: String,
-        price: String
+        type: String
     ) {
         val cars = Cars(
             id = id,
@@ -51,7 +48,6 @@ class CarsViewModel(
             model = model,
             age = age,
             type = type,
-            price = price
         )
         viewModelScope.launch(Dispatchers.IO) {
             carsDao.update(cars)
