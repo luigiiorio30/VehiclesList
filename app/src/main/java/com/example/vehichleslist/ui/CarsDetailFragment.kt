@@ -10,7 +10,6 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.vehichleslist.BaseApplication
-import com.example.vehichleslist.R
 import com.example.vehichleslist.databinding.FragmentCarsDetailBinding
 import com.example.vehichleslist.model.Cars
 import com.example.vehichleslist.ui.viewmodel.CarsViewModel
@@ -59,7 +58,8 @@ class CarsDetailFragment : Fragment() {
             fuel.text = "Type of fuel: " + cars.fuel
             chilometer.text = "Total chilometer: " + cars.chilom + " km"
             licensePlate.text = "License plate: " +  cars.license
-            displacement.text = "Displacement: " + cars.displac + " cm^3"
+            displacement.text = "Displacement: " + cars.displac + " cc"
+     //       setAndGetUriByBrandParsingListOfLogoAndImageView(viewModel.logoDataApi, cars.name, image)
             editCarsFab.setOnClickListener {
                 val action = CarsDetailFragmentDirections
                     .actionCarsDetailFragmentToAddCarsFragment(cars.id)

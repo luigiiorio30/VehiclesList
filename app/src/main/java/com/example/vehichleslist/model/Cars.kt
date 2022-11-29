@@ -3,7 +3,6 @@ package com.example.vehichleslist.model
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import java.text.NumberFormat
 
 @Entity(tableName = "cars_database")
 data class Cars(
@@ -17,5 +16,3 @@ data class Cars(
     @ColumnInfo(name = "licensePlate") val license: String,
     @ColumnInfo(name = "displacement") val displac: String,
 )
-
-//fun Cars.getFormattedPrice(): String = NumberFormat.getCurrencyInstance().format(price)

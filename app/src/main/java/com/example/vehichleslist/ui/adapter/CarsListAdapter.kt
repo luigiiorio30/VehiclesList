@@ -7,17 +7,21 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.vehichleslist.databinding.ListItemCarBinding
 import com.example.vehichleslist.model.Cars
+import com.example.vehichleslist.network.Logo
+import com.example.vehichleslist.setAndGetUriByBrandParsingListOfLogoAndImageView
 
 class CarsListAdapter(
-    private val clickListener: (Cars) -> Unit
+    private val clickListener: (Cars) -> Unit,
+    private val logoDataApi: List<Logo>?
 ) : ListAdapter<Cars, CarsListAdapter.CarsViewHolder>(DiffCallback) {
 
     class CarsViewHolder(
         private var binding: ListItemCarBinding
     ): RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(cars: Cars) {
+        fun bind(cars: Cars, logoDataApi: List<Logo>?) {
             binding.cars = cars
+            setAndGetUriByBrandParsingListOfLogoAndImageView(logoDataApi, cars.name, binding.image)
             binding.executePendingBindings()
         }
     }
@@ -45,6 +49,6 @@ class CarsListAdapter(
         holder.itemView.setOnClickListener{
             clickListener(cars)
         }
-        holder.bind(cars)
+        holder.bind(cars, logoDataApi)
     }
 }

@@ -81,7 +81,7 @@ class AddCarsFragment : Fragment() {
                 binding.typeInput.text.toString(),
                 binding.fuelInput.text.toString(),
                 binding.chilometerInput.text.toString(),
-                binding.licenseInput.text.toString(),
+                binding.licenseInput.text.toString().uppercase(),
                 binding.displacementInput.text.toString()
             )
                 findNavController().navigate(
@@ -100,7 +100,7 @@ class AddCarsFragment : Fragment() {
                 type = binding.typeInput.text.toString(),
                 fuel = binding.fuelInput.text.toString(),
                 chilom = binding.chilometerInput.text.toString(),
-                license = binding.licenseInput.text.toString(),
+                license = binding.licenseInput.text.toString().uppercase(),
                 displac = binding.displacementInput.text.toString()
             )
             findNavController().navigate(

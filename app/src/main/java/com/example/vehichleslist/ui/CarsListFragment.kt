@@ -37,13 +37,17 @@ class CarsListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        viewModel.getLogo()
 
 
-        val adapter = CarsListAdapter { cars ->
-            val action = CarsListFragmentDirections
-                .actionCarsListFragmentToCarsDetailFragment(cars.id)
-            findNavController().navigate(action)
-        }
+        val adapter =
+            CarsListAdapter(
+                logoDataApi = viewModel.logoDataApi.value,
+                clickListener = { cars ->
+                    val action = CarsListFragmentDirections
+                        .actionCarsListFragmentToCarsDetailFragment(cars.id)
+                    findNavController().navigate(action)
+                })
 
         viewModel.cars.observe(viewLifecycleOwner) {
             adapter.submitList(it)

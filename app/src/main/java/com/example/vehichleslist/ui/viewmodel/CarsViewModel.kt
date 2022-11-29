@@ -3,16 +3,42 @@ package com.example.vehichleslist.ui.viewmodel
 import androidx.lifecycle.*
 import com.example.vehichleslist.data.CarsDao
 import com.example.vehichleslist.model.Cars
+import com.example.vehichleslist.network.Logo
+import com.example.vehichleslist.network.LogoApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-
+enum class LogoApiStatus { LOADING, ERROR, DONE }
 class CarsViewModel(
     private val carsDao: CarsDao
 ): ViewModel() {
 
+    // Status Logo Api
+    private val _statusLogApi = MutableLiveData<LogoApiStatus>()
+    val statusLogApi: LiveData<LogoApiStatus> = _statusLogApi
+
+    private val _logoDataApi = MutableLiveData<List<Logo>>()
+    val logoDataApi: LiveData<List<Logo>> = _logoDataApi
+
     val cars: LiveData<List<Cars>> = carsDao.getCars().asLiveData()
     fun getCars(id: Long): LiveData<Cars> {
         return carsDao.getCars(id).asLiveData()
+    }
+
+    /**
+     * Gets Logo information from the Vehicle API Retrofit service and updates the
+     * [_logoDataApi] [List] [LiveData].
+     */
+    fun getLogo() {
+        viewModelScope.launch {
+            _statusLogApi.value = LogoApiStatus.LOADING
+            try {
+                _logoDataApi.value = LogoApi.retrofitService.getLogo()
+                _statusLogApi.value = LogoApiStatus.DONE
+            } catch (e: java.lang.Exception) {
+                _statusLogApi.value = LogoApiStatus.ERROR
+                _logoDataApi.value = listOf()
+            }
+        }
     }
 
 
