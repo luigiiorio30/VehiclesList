@@ -1,5 +1,6 @@
 package com.example.vehichleslist.ui
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,14 +8,20 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.vehichleslist.BaseApplication
 import com.example.vehichleslist.R
 import com.example.vehichleslist.databinding.FragmentAddCarBinding
 import com.example.vehichleslist.model.Cars
+import com.example.vehichleslist.ui.viewmodel.CarsNotificationViewModel
+import com.example.vehichleslist.ui.viewmodel.CarsNotificationViewModelFactory
 import com.example.vehichleslist.ui.viewmodel.CarsViewModel
 import com.example.vehichleslist.ui.viewmodel.CarsViewModelFactory
+import com.google.android.material.snackbar.Snackbar
+import java.util.concurrent.TimeUnit
+
 
 class AddCarsFragment : Fragment() {
 
@@ -24,6 +31,7 @@ class AddCarsFragment : Fragment() {
 
     private lateinit var cars: Cars
 
+
     private val binding get() = _binding!!
 
     private val viewModel: CarsViewModel by activityViewModels {
@@ -32,9 +40,12 @@ class AddCarsFragment : Fragment() {
         )
     }
 
+    private val viewModelNotification: CarsNotificationViewModel by viewModels {
+        CarsNotificationViewModelFactory(requireActivity().application)
+    }
+
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
 
         _binding = FragmentAddCarBinding.inflate(inflater, container, false)
@@ -65,6 +76,7 @@ class AddCarsFragment : Fragment() {
         }
     }
 
+
     private fun deleteCars(cars: Cars) {
         viewModel.deleteCars(cars)
         findNavController().navigate(
@@ -84,9 +96,17 @@ class AddCarsFragment : Fragment() {
                 binding.licenseInput.text.toString().uppercase(),
                 binding.displacementInput.text.toString()
             )
-                findNavController().navigate(
-                    R.id.action_addCarsFragment_to_CarsListFragment
-                )
+            viewModelNotification.scheduleReminder(
+                5,
+                TimeUnit.SECONDS,
+                binding.nameInput.text.toString(),
+                binding.chilometerInput.text.toString().toInt(),
+            )
+            findNavController().navigate(
+                R.id.action_addCarsFragment_to_CarsListFragment
+            )
+        } else {
+            view?.let { Snackbar.make(it, "Check required field", Snackbar.LENGTH_SHORT).show() }
         }
     }
 
@@ -103,6 +123,12 @@ class AddCarsFragment : Fragment() {
                 license = binding.licenseInput.text.toString().uppercase(),
                 displac = binding.displacementInput.text.toString()
             )
+            viewModelNotification.scheduleReminder(
+                5,
+                TimeUnit.SECONDS,
+                binding.nameInput.text.toString(),
+                binding.chilometerInput.text.toString().toInt()
+            )
             findNavController().navigate(
                 R.id.action_addCarsFragment_to_CarsListFragment
             )
@@ -113,10 +139,10 @@ class AddCarsFragment : Fragment() {
         binding.apply {
             nameInput.setText(cars.name, TextView.BufferType.SPANNABLE)
             modelInput.setText(cars.model, TextView.BufferType.SPANNABLE)
-            ageInput.setText(cars.age, TextView.BufferType.SPANNABLE)
+            ageInput.setText(cars.age.toString(), TextView.BufferType.SPANNABLE)
             typeInput.setText(cars.type, TextView.BufferType.SPANNABLE)
             fuelInput.setText(cars.fuel, TextView.BufferType.SPANNABLE)
-            chilometerInput.setText(cars.chilom, TextView.BufferType.SPANNABLE)
+            chilometerInput.setText(cars.chilom.toString(), TextView.BufferType.SPANNABLE)
             licenseInput.setText(cars.license, TextView.BufferType.SPANNABLE)
             displacementInput.setText(cars.displac, TextView.BufferType.SPANNABLE)
             saveBtn.setOnClickListener {
@@ -127,11 +153,18 @@ class AddCarsFragment : Fragment() {
 
     private fun isValidEntry() = viewModel.isValidEntry(
         binding.nameInput.text.toString(),
-        binding.modelInput.text.toString()
+        binding.modelInput.text.toString(),
+        binding.ageInput.text.toString(),
+        binding.chilometerInput.text.toString(),
+
     )
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
+}
+
+private fun Context?.toast(s: String) {
+
 }

@@ -21,7 +21,6 @@ class CarsListFragment : Fragment() {
             (activity?.application as BaseApplication).database.carsDao()
         )
     }
-
     private var _binding: FragmentCarListBinding? = null
 
     private val binding get() = _binding!!
@@ -30,7 +29,6 @@ class CarsListFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         _binding = FragmentCarListBinding.inflate(inflater, container, false)
         return binding.root
     }

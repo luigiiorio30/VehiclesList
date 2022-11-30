@@ -1,20 +1,23 @@
 <resources>
     <string name="app_name">VehichlesList</string>
-    <string name="cars_name">Brand</string>
-    <string name="cars_model">Model</string>
-    <string name="age">Age of production</string>
+    <string name="cars_name">Brand*</string>
+    <string name="cars_model">Model*</string>
+    <string name="age">Age of production*</string>
     <string name="type_cars">Types</string>
     <string name="save">Save</string>
     <string name="delete">Delete</string>
     <string name="add">Add</string>
     <string name="setMenu">Settings</string>
     <string name="fuel">Fuel type </string>
-    <string name="chilometer">Total chilometer </string>
+    <string name="chilometer">Total chilometer* </string>
     <string name="license_plate">License plate </string>
     <string name="displacement">Displacement </string>
     <string name="unit_cil">cm^3</string>
     <string name="unit_km">km</string>
     <string name="modelInf">Model:</string>
     <string name="plateInf">Plate:</string>
+    <string name="channel_name">car_channel</string>
+    <string name="channel_description">car_reminder</string>
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
