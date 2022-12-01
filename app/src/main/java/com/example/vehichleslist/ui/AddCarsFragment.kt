@@ -107,7 +107,7 @@ class AddCarsFragment : Fragment() {
                 R.id.action_addCarsFragment_to_CarsListFragment
             )
         } else {
-            val text = "We brodo!"
+            val text = "Test"
             val duration = Toast.LENGTH_SHORT
 
             val toast = Toast.makeText(context, text, duration)
