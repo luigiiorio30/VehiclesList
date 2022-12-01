@@ -32,6 +32,9 @@ class AddCarsFragment : Fragment() {
 
     private lateinit var cars: Cars
 
+    private val error = ""
+
+    private val duration = Toast.LENGTH_SHORT
 
     private val binding get() = _binding!!
 
@@ -107,11 +110,18 @@ class AddCarsFragment : Fragment() {
                 R.id.action_addCarsFragment_to_CarsListFragment
             )
         } else {
-            val text = "Test"
-            val duration = Toast.LENGTH_SHORT
-
-            val toast = Toast.makeText(context, text, duration)
+            val toast = Toast.makeText(context, isInputEmpty(), duration)
             toast.show()
+        }
+    }
+
+   private fun isInputEmpty(): Int{
+        return when (error.isBlank()){
+            binding.nameInput.text.toString().isBlank() -> R.string.name_error
+            binding.modelInput.text.toString().isBlank() -> R.string.model_error
+            binding.ageInput.text.toString().isBlank() -> R.string.age_error
+            binding.chilometerInput.text.toString().isBlank() -> R.string.chilometer_error
+            else -> R.string.toast_error
         }
     }
 
@@ -170,6 +180,3 @@ class AddCarsFragment : Fragment() {
     }
 }
 
-private fun Context?.toast(s: String) {
-
-}

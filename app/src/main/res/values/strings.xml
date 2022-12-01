@@ -18,6 +18,14 @@
     <string name="plateInf">Plate:</string>
     <string name="channel_name">car_channel</string>
     <string name="channel_description">car_reminder</string>
+    <string name="toast_error">Generic error!</string>
+    <string name="name_error">Insert a valid value for "Brand""</string>
+    <string name="model_error">"Insert a valid value for "Model""</string>
+    <string name="age_error">"Insert a valid value for "Age of production""</string>
+    <string name="chilometer_error">"Insert a valid value for "Total chilometer""</string>
+
+
+
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
