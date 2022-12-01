@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
@@ -106,7 +107,11 @@ class AddCarsFragment : Fragment() {
                 R.id.action_addCarsFragment_to_CarsListFragment
             )
         } else {
-            view?.let { Snackbar.make(it, "Check required field", Snackbar.LENGTH_SHORT).show() }
+            val text = "We brodo!"
+            val duration = Toast.LENGTH_SHORT
+
+            val toast = Toast.makeText(context, text, duration)
+            toast.show()
         }
     }
 
