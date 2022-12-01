@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.vehichleslist.BaseApplication
 import com.example.vehichleslist.R
 import com.example.vehichleslist.databinding.FragmentCarListBinding
+import com.example.vehichleslist.network.Logo
 import com.example.vehichleslist.ui.adapter.CarsListAdapter
 import com.example.vehichleslist.ui.viewmodel.CarsViewModel
 import com.example.vehichleslist.ui.viewmodel.CarsViewModelFactory
@@ -38,7 +39,6 @@ class CarsListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel.getLogo()
 
-
         val adapter =
             CarsListAdapter(
                 logoDataApi = viewModel.logoDataApi.value,
@@ -47,9 +47,12 @@ class CarsListFragment : Fragment() {
                         .actionCarsListFragmentToCarsDetailFragment(cars.id)
                     findNavController().navigate(action)
                 })
-
-        viewModel.cars.observe(viewLifecycleOwner) {
-            adapter.submitList(it)
+        val observer = Observer<List<Logo>>{
+            binding.recyclerView.adapter = adapter
+        }
+        viewModel.logoDataApi.observe(viewLifecycleOwner, observer)
+        viewModel.cars.observe(this.viewLifecycleOwner) { cars ->
+            cars.let { adapter.submitList(it) }
         }
 
         binding.apply {
