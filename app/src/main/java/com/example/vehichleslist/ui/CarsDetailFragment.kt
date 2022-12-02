@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -26,16 +28,22 @@ class CarsDetailFragment : Fragment() {
             (activity?.application as BaseApplication).database.carsDao()
         )
     }
+    private val rotateOpen: Animation by lazy { AnimationUtils.loadAnimation(context, R.anim.rotate_open_anim) }
+    private val rotateClose: Animation by lazy { AnimationUtils.loadAnimation(context, R.anim.rotate_close_anim) }
+    private val fromBottom: Animation by lazy { AnimationUtils.loadAnimation(context, R.anim.from_bottom_animation) }
+    private val toBottom: Animation by lazy { AnimationUtils.loadAnimation(context, R.anim.to_bottom_animation) }
 
     private lateinit var cars: Cars
 
     private var _binding: FragmentCarsDetailBinding? = null
     private val binding get() = _binding!!
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         _binding = FragmentCarsDetailBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -59,6 +67,9 @@ class CarsDetailFragment : Fragment() {
             R.id.action_carsDetailFragment_to_carsListFragment
         )
     }
+
+
+
 
     @SuppressLint("SetTextI18n")
     private fun bindCars() {
