@@ -39,7 +39,7 @@ class CarsListFragment : Fragment() {
         viewModel.getLogo()
 
         val adapter =
-            CarsListAdapter(logoDataApi = viewModel.logoDataApi.value, clickListener = { cars ->
+            CarsListAdapter(logoDataApi = viewModel.logoDataApi, clickListener = { cars ->
                 val action =
                     CarsListFragmentDirections.actionCarsListFragmentToCarsDetailFragment(cars.id)
                 findNavController().navigate(action)

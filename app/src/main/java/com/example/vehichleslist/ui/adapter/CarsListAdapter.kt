@@ -2,6 +2,7 @@ package com.example.vehichleslist.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -12,16 +13,16 @@ import com.example.vehichleslist.setAndGetUriByBrandParsingListOfLogoAndImageVie
 
 class CarsListAdapter(
     private val clickListener: (Cars) -> Unit,
-    private val logoDataApi: List<Logo>?
+    private val logoDataApi: LiveData<List<Logo>>
 ) : ListAdapter<Cars, CarsListAdapter.CarsViewHolder>(DiffCallback) {
 
     class CarsViewHolder(
         private var binding: ListItemCarBinding
     ): RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(cars: Cars, logoDataApi: List<Logo>?) {
+        fun bind(cars: Cars, logoDataApi: LiveData<List<Logo>>) {
             binding.cars = cars
-            setAndGetUriByBrandParsingListOfLogoAndImageView(logoDataApi, cars.name, binding.image)
+            setAndGetUriByBrandParsingListOfLogoAndImageView(logoDataApi.value, cars.name, binding.image)
             binding.executePendingBindings()
         }
     }
