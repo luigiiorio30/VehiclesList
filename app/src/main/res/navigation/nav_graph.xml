@@ -43,5 +43,8 @@
             android:name="id"
             app:argType="long"
             android:defaultValue="0L" />
+        <action
+            android:id="@+id/action_carsDetailFragment_to_carsListFragment"
+            app:destination="@id/carsListFragment" />
     </fragment>
 </navigation>

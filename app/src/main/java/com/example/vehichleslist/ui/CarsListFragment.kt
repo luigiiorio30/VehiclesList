@@ -40,12 +40,11 @@ class CarsListFragment : Fragment() {
 
         //fixed viewModel.logoDataApi.value in viewModel.logoDataApi
 
-        val adapter =
-            CarsListAdapter(logoDataApi = viewModel.logoDataApi, clickListener = { cars ->
-                val action =
-                    CarsListFragmentDirections.actionCarsListFragmentToCarsDetailFragment(cars.id)
-                findNavController().navigate(action)
-            })
+        val adapter = CarsListAdapter(logoDataApi = viewModel.logoDataApi, clickListener = { cars ->
+            val action =
+                CarsListFragmentDirections.actionCarsListFragmentToCarsDetailFragment(cars.id)
+            findNavController().navigate(action)
+        })
 
         val observer = Observer<List<Logo>> {
             binding.recyclerView.adapter = adapter

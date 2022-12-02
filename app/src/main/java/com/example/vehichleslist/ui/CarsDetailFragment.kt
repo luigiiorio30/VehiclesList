@@ -10,8 +10,10 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.vehichleslist.BaseApplication
+import com.example.vehichleslist.R
 import com.example.vehichleslist.databinding.FragmentCarsDetailBinding
 import com.example.vehichleslist.model.Cars
+import com.example.vehichleslist.setAndGetUriByBrandParsingListOfLogoAndImageView
 import com.example.vehichleslist.ui.viewmodel.CarsViewModel
 import com.example.vehichleslist.ui.viewmodel.CarsViewModelFactory
 
@@ -46,6 +48,16 @@ class CarsDetailFragment : Fragment() {
             cars = it
             bindCars()
         }
+        binding.deleteCarsFab.setOnClickListener {
+            deleteCars(cars)
+        }
+    }
+
+    private fun deleteCars(cars: Cars) {
+        viewModel.deleteCars(cars)
+        findNavController().navigate(
+            R.id.action_carsDetailFragment_to_carsListFragment
+        )
     }
 
     @SuppressLint("SetTextI18n")
@@ -59,7 +71,7 @@ class CarsDetailFragment : Fragment() {
             chilometer.text = "Total chilometer: " + cars.chilom + " km"
             licensePlate.text = "License plate: " +  cars.license
             displacement.text = "Displacement: " + cars.displac + " cc"
-     //       setAndGetUriByBrandParsingListOfLogoAndImageView(viewModel.logoDataApi, cars.name, image)
+       //     setAndGetUriByBrandParsingListOfLogoAndImageView(viewModel.logoDataApi.value, cars.name, image)
             editCarsFab.setOnClickListener {
                 val action = CarsDetailFragmentDirections
                     .actionCarsDetailFragmentToAddCarsFragment(cars.id)
