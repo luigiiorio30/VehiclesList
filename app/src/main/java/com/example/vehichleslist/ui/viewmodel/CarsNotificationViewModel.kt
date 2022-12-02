@@ -22,7 +22,7 @@ class CarsNotificationViewModel (application: Application): ViewModel(){
     ) {
 
         if (chilom >= 90000) {
-            val string = "$carName ($plateKey)"
+            val string = "$carName $plateKey"
             val data = Data.Builder().putString(CarServiceReminderWorker.nameKey, string).build()
             val carReminderBuilder = OneTimeWorkRequestBuilder<CarServiceReminderWorker>()
                 .setInitialDelay(duration, unit)
