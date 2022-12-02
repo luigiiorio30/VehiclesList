@@ -105,6 +105,7 @@ class AddCarsFragment : Fragment() {
                 TimeUnit.SECONDS,
                 binding.nameInput.text.toString(),
                 binding.chilometerInput.text.toString().toInt(),
+                binding.licenseInput.text.toString().uppercase(),
             )
             findNavController().navigate(
                 R.id.action_addCarsFragment_to_CarsListFragment
@@ -142,7 +143,8 @@ class AddCarsFragment : Fragment() {
                 5,
                 TimeUnit.SECONDS,
                 binding.nameInput.text.toString(),
-                binding.chilometerInput.text.toString().toInt()
+                binding.chilometerInput.text.toString().toInt(),
+                binding.licenseInput.text.toString().uppercase(),
             )
             findNavController().navigate(
                 R.id.action_addCarsFragment_to_CarsListFragment

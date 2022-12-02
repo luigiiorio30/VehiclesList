@@ -16,18 +16,20 @@ class CarsNotificationViewModel (application: Application): ViewModel(){
         duration: Long,
         unit: TimeUnit,
         carName: String,
-        chilom: Int
+        chilom: Int,
+        plateKey: String
+
     ) {
 
         if (chilom >= 90000) {
-            val data = Data.Builder().putString(CarServiceReminderWorker.nameKey, carName).build()
+            val string = "$carName ($plateKey)"
+            val data = Data.Builder().putString(CarServiceReminderWorker.nameKey, string).build()
             val carReminderBuilder = OneTimeWorkRequestBuilder<CarServiceReminderWorker>()
                 .setInitialDelay(duration, unit)
                 .setInputData(data)
                 .build()
             workManager.enqueueUniqueWork(carName, ExistingWorkPolicy.REPLACE, carReminderBuilder)
         }
-
     }
 }
 class CarsNotificationViewModelFactory(private val application: Application) :

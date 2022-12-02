@@ -27,12 +27,12 @@ class CarServiceReminderWorker(
         val pendingIntent: PendingIntent = PendingIntent
             .getActivity(applicationContext, 0, intent, FLAG_IMMUTABLE)
 
-        val carName = inputData.getString(nameKey)
+        val carNamePlate = inputData.getString(nameKey)
 
         val builder = NotificationCompat.Builder(applicationContext, BaseApplication.CHANNEL_ID)
             .setSmallIcon(R.drawable.ic_piston)
             .setContentTitle("Vehicles List")
-            .setContentText("Don't forget to get a car service to your $carName")
+            .setContentText("Don't forget to get a car service to your $carNamePlate")
             .setPriority(NotificationCompat.PRIORITY_HIGH)
             .setContentIntent(pendingIntent)
             .setAutoCancel(true)

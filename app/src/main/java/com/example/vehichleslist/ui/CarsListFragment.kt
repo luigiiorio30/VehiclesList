@@ -28,9 +28,8 @@ class CarsListFragment : Fragment() {
     private val binding get() = _binding!!
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+    ): View {
         _binding = FragmentCarListBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -40,14 +39,13 @@ class CarsListFragment : Fragment() {
         viewModel.getLogo()
 
         val adapter =
-            CarsListAdapter(
-                logoDataApi = viewModel.logoDataApi.value,
-                clickListener = { cars ->
-                    val action = CarsListFragmentDirections
-                        .actionCarsListFragmentToCarsDetailFragment(cars.id)
-                    findNavController().navigate(action)
-                })
-        val observer = Observer<List<Logo>>{
+            CarsListAdapter(logoDataApi = viewModel.logoDataApi.value, clickListener = { cars ->
+                val action =
+                    CarsListFragmentDirections.actionCarsListFragmentToCarsDetailFragment(cars.id)
+                findNavController().navigate(action)
+            })
+
+        val observer = Observer<List<Logo>> {
             binding.recyclerView.adapter = adapter
         }
         viewModel.logoDataApi.observe(viewLifecycleOwner, observer)
@@ -56,6 +54,7 @@ class CarsListFragment : Fragment() {
         }
 
         binding.apply {
+            lifecycleOwner = viewLifecycleOwner
             recyclerView.adapter = adapter
             addCarsFab.setOnClickListener {
                 findNavController().navigate(
