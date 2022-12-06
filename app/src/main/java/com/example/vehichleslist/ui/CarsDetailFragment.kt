@@ -32,6 +32,7 @@ class CarsDetailFragment : Fragment() {
     private val rotateClose: Animation by lazy { AnimationUtils.loadAnimation(context, R.anim.rotate_close_anim) }
     private val fromBottom: Animation by lazy { AnimationUtils.loadAnimation(context, R.anim.from_bottom_animation) }
     private val toBottom: Animation by lazy { AnimationUtils.loadAnimation(context, R.anim.to_bottom_animation) }
+    private var clicked = false
 
     private lateinit var cars: Cars
 
@@ -56,8 +57,42 @@ class CarsDetailFragment : Fragment() {
             cars = it
             bindCars()
         }
+
+        binding.openCarsFab.setOnClickListener {
+            addOnButtonClicked()
+        }
+
         binding.deleteCarsFab.setOnClickListener {
             deleteCars(cars)
+        }
+
+    }
+
+    private fun addOnButtonClicked() {
+        setVisibility(clicked)
+        setAnimation(clicked)
+        clicked = !clicked
+    }
+
+    private fun setVisibility(clicked: Boolean) {
+        if (!clicked){
+            binding.editCarsFab.visibility = View.VISIBLE
+            binding.deleteCarsFab.visibility = View.VISIBLE
+        }else{
+            binding.editCarsFab.visibility = View.INVISIBLE
+            binding.deleteCarsFab.visibility = View.INVISIBLE
+        }
+    }
+
+    private fun setAnimation(clicked: Boolean) {
+        if (!clicked){
+            binding.editCarsFab.startAnimation(fromBottom)
+            binding.deleteCarsFab.startAnimation(fromBottom)
+            binding.openCarsFab.startAnimation(rotateOpen)
+        }else{
+            binding.editCarsFab.startAnimation(toBottom)
+            binding.deleteCarsFab.startAnimation(toBottom)
+            binding.openCarsFab.startAnimation(rotateClose)
         }
     }
 
@@ -67,9 +102,6 @@ class CarsDetailFragment : Fragment() {
             R.id.action_carsDetailFragment_to_carsListFragment
         )
     }
-
-
-
 
     @SuppressLint("SetTextI18n")
     private fun bindCars() {

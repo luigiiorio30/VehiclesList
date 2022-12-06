@@ -80,4 +80,7 @@ dependencies {
 
     // Picasso
     implementation 'com.squareup.picasso:picasso:2.8'
+
+    //Fab
+    implementation 'com.github.clans:fab:1.6.2'
 }

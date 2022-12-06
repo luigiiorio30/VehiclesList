@@ -1,6 +1,5 @@
 package com.example.vehichleslist.ui
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -20,7 +19,6 @@ import com.example.vehichleslist.ui.viewmodel.CarsNotificationViewModel
 import com.example.vehichleslist.ui.viewmodel.CarsNotificationViewModelFactory
 import com.example.vehichleslist.ui.viewmodel.CarsViewModel
 import com.example.vehichleslist.ui.viewmodel.CarsViewModelFactory
-import com.google.android.material.snackbar.Snackbar
 import java.util.concurrent.TimeUnit
 
 
@@ -103,9 +101,10 @@ class AddCarsFragment : Fragment() {
             viewModelNotification.scheduleReminder(
                 5,
                 TimeUnit.SECONDS,
-                binding.nameInput.text.toString(),
+                binding.nameInput.text.toString().uppercase(),
                 binding.chilometerInput.text.toString().toInt(),
                 binding.licenseInput.text.toString().uppercase(),
+                binding.modelInput.text.toString().uppercase(),
             )
             findNavController().navigate(
                 R.id.action_addCarsFragment_to_CarsListFragment
@@ -142,9 +141,10 @@ class AddCarsFragment : Fragment() {
             viewModelNotification.scheduleReminder(
                 5,
                 TimeUnit.SECONDS,
-                binding.nameInput.text.toString(),
+                binding.nameInput.text.toString().uppercase(),
                 binding.chilometerInput.text.toString().toInt(),
                 binding.licenseInput.text.toString().uppercase(),
+                binding.modelInput.text.toString(),
             )
             findNavController().navigate(
                 R.id.action_addCarsFragment_to_CarsListFragment
