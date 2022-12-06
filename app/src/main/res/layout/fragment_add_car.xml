@@ -10,7 +10,7 @@
     android:layout_margin="16dp"
     android:padding="16dp"
     tools:context=".ui.AddCarsFragment">
-
+    <!-- TODO: Modify textbox -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/name_label"
         android:layout_width="match_parent"

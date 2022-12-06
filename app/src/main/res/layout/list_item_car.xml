@@ -16,11 +16,14 @@
         android:paddingStart="16dp"
         android:paddingEnd="16dp">
 
-        <ImageView
+        <com.makeramen.roundedimageview.RoundedImageView
             android:id="@+id/image"
             android:scaleType="centerInside"
             android:layout_width="95dp"
             android:layout_height="95dp"
+            app:riv_corner_radius="20dip"
+            app:riv_mutate_background="true"
+            android:background="@color/primaryDarkColor"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/divider_model"
             app:layout_constraintTop_toTopOf="parent"
@@ -86,6 +89,7 @@
             android:id="@+id/plate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+
             android:layout_marginStart="5dp"
             android:text="@{cars.license}"
             android:textAppearance="?attr/textAppearanceBody2"

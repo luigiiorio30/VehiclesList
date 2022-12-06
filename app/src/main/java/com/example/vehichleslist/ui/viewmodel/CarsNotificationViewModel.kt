@@ -10,8 +10,9 @@ import androidx.work.WorkManager
 import com.example.vehichleslist.worker.CarServiceReminderWorker
 import java.util.concurrent.TimeUnit
 
-class CarsNotificationViewModel (application: Application): ViewModel(){
+class CarsNotificationViewModel(application: Application) : ViewModel() {
     private val workManager = WorkManager.getInstance(application)
+    lateinit var string: String
     internal fun scheduleReminder(
         duration: Long,
         unit: TimeUnit,
@@ -22,23 +23,28 @@ class CarsNotificationViewModel (application: Application): ViewModel(){
 
     ) {
 
+        string = if (plateKey.isNotEmpty()) {
+            "$carName $carModel ($plateKey)"
+        } else {
+            "$carName $carModel"
+        }
+
         if (chilom >= 90000) {
-            val string = "$carName $carModel ($plateKey)"
             val data = Data.Builder().putString(CarServiceReminderWorker.nameKey, string).build()
-            val carReminderBuilder = OneTimeWorkRequestBuilder<CarServiceReminderWorker>()
-                .setInitialDelay(duration, unit)
-                .setInputData(data)
-                .build()
+            val carReminderBuilder =
+                OneTimeWorkRequestBuilder<CarServiceReminderWorker>().setInitialDelay(
+                    duration, unit
+                ).setInputData(data).build()
             workManager.enqueueUniqueWork(carName, ExistingWorkPolicy.REPLACE, carReminderBuilder)
         }
     }
 }
+
 class CarsNotificationViewModelFactory(private val application: Application) :
     ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(CarsNotificationViewModel::class.java)) {
-            @Suppress("UNCHECKED_CAST")
-            return CarsNotificationViewModel(application) as T
+            @Suppress("UNCHECKED_CAST") return CarsNotificationViewModel(application) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }
