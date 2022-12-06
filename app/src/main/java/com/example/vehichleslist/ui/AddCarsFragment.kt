@@ -104,7 +104,7 @@ class AddCarsFragment : Fragment() {
                 binding.nameInput.text.toString().uppercase(),
                 binding.chilometerInput.text.toString().toInt(),
                 binding.licenseInput.text.toString().uppercase(),
-                binding.modelInput.text.toString().uppercase(),
+                binding.modelInput.text.toString(),
             )
             findNavController().navigate(
                 R.id.action_addCarsFragment_to_CarsListFragment

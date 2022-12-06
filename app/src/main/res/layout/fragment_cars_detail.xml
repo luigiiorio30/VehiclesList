@@ -17,6 +17,7 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:text="Name"/>
 
+
     <ImageView
         android:id="@+id/ic_model"
         android:layout_width="wrap_content"
@@ -220,6 +221,18 @@
         app:layout_constraintStart_toEndOf="@id/ic_displacement"
         tools:text="Displacement" />
 
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="95dp"
+        android:layout_height="95dp"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider_plate"
+        android:src="@drawable/ic_under_construction"
+        />
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/edit_cars_fab"
         android:layout_width="wrap_content"
@@ -251,6 +264,5 @@
         android:src="@drawable/no_car"
         app:layout_constraintBottom_toTopOf="@id/edit_cars_fab"
         app:layout_constraintEnd_toEndOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
