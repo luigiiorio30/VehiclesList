@@ -79,8 +79,8 @@ class CarsDetailFragment : Fragment() {
             binding.editCarsFab.visibility = View.VISIBLE
             binding.deleteCarsFab.visibility = View.VISIBLE
         }else{
-            binding.editCarsFab.visibility = View.INVISIBLE
-            binding.deleteCarsFab.visibility = View.INVISIBLE
+            binding.editCarsFab.visibility = View.GONE
+            binding.deleteCarsFab.visibility = View.GONE
         }
     }
 

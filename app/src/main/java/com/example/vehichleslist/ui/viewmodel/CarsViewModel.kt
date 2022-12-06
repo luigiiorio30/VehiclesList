@@ -13,20 +13,22 @@ import kotlinx.coroutines.launch
 enum class LogoApiStatus { LOADING, ERROR, DONE }
 class CarsViewModel(private val carsDao: CarsDao) : ViewModel() {
 
+
     // Status Logo Api
     private val _statusLogApi = MutableLiveData<LogoApiStatus>()
     // val statusLogApi: LiveData<LogoApiStatus> = _statusLogApi
 
     private val _logoDataApi = MutableLiveData<List<Logo>>()
+
     val logoDataApi: LiveData<List<Logo>> = _logoDataApi
+
+    init {
+        getLogo()
+    }
 
     val cars: LiveData<List<Cars>> = carsDao.getCars().asLiveData()
     fun getCars(id: Long): LiveData<Cars> {
         return carsDao.getCars(id).asLiveData()
-    }
-
-    init {
-        getLogo()
     }
 
     fun getLogo() {
