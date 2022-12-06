@@ -8,7 +8,7 @@ Use VehiclesList to keep track of the vehicles in your garage, consult periodica
 
 ## API Reference
 
-#### Get all items
+#### Get all vehicles logo
 https://github.com/ErCrasher27/carl-maker-logos.json
   
 
