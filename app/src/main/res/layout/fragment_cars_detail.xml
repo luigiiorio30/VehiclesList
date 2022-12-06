@@ -268,5 +268,7 @@
         app:layout_constraintBottom_toTopOf="@id/edit_cars_fab"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- TODO: Fix layout for better user experience-->
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.vehichleslist">
 
-    <!-- INTERNET permission for API -->
+    <!-- TODO: Add icon animation to startup -->
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application

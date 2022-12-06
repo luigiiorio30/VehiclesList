@@ -103,6 +103,8 @@ class CarsDetailFragment : Fragment() {
         )
     }
 
+    //TODO: Remember to add personalized image or icon in this fragment
+
     @SuppressLint("SetTextI18n")
     private fun bindCars() {
         binding.apply {
