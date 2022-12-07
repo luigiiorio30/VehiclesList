@@ -10,7 +10,7 @@
     <string name="setMenu">Settings</string>
     <string name="fuel">Fuel type </string>
     <string name="chilometer">Total chilometer* </string>
-    <string name="license_plate">License plate </string>
+    <string name="license_plate">License plate* </string>
     <string name="displacement">Displacement </string>
     <string name="unit_cil">cm^3</string>
     <string name="unit_km">km</string>
@@ -23,6 +23,8 @@
     <string name="model_error">"Insert a valid value for "Model""</string>
     <string name="age_error">"Insert a valid value for "Age of production""</string>
     <string name="chilometer_error">"Insert a valid value for "Total chilometer""</string>
+    <string name="plate_error">"Insert a valid value for "License plate""</string>
+    <string name="plate_warning">"Insert a valid value for "License plate" in format AB123CD"</string>
 
 
 

@@ -34,6 +34,9 @@ class AddCarsFragment : Fragment() {
 
     private val duration = Toast.LENGTH_SHORT
 
+    private val regex = Regex("^[A-Za-z]{2}[0-9]{3}[A-Za-z]{2}\$")
+
+
     private val binding get() = _binding!!
 
     private val viewModel: CarsViewModel by activityViewModels {
@@ -118,12 +121,12 @@ class AddCarsFragment : Fragment() {
     }
 
    private fun isInputEmpty(): Int{
-        return when (error.isBlank()){
+        return when (error.isBlank() || binding.licenseInput.text.toString().matches(regex)){
             binding.nameInput.text.toString().isBlank() -> R.string.name_error
             binding.modelInput.text.toString().isBlank() -> R.string.model_error
             binding.ageInput.text.toString().isBlank() -> R.string.age_error
             binding.chilometerInput.text.toString().isBlank() -> R.string.chilometer_error
-            binding.licenseInput.text.toString().isBlank() -> R.string.add
+            !binding.licenseInput.text.toString().matches(regex) -> R.string.plate_warning
             else -> R.string.toast_error
         }
     }
@@ -152,6 +155,9 @@ class AddCarsFragment : Fragment() {
             findNavController().navigate(
                 R.id.action_addCarsFragment_to_CarsListFragment
             )
+        }else {
+            val toast = Toast.makeText(context, isInputEmpty(), duration)
+            toast.show()
         }
     }
 
