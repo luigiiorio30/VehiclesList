@@ -104,11 +104,18 @@ class CarsViewModel(private val carsDao: CarsDao) : ViewModel() {
         }
     }
 
-    fun isValidEntry(name: String, model: String, age: String, chilom: String): Boolean {
-        if ((name.isBlank() || model.isBlank() || age.isBlank() || chilom.isBlank())) {
+    fun isValidEntry(name: String, model: String, age: String, chilom: String, licensePlate: String): Boolean {
+        if ((name.isBlank() || model.isBlank() || age.isBlank() || chilom.isBlank() || licensePlate.isBlank())) {
             return false
         }
-        return true
+        return isValidLicensePlate(licensePlate)
+    }
+
+    fun isValidLicensePlate(licensePlate: String): Boolean {
+        if (licensePlate.matches("^[A-Za-z]{2}[0-9]{3}[A-Za-z]{2}\$".toRegex())) {
+            return true
+        }
+        return false
     }
 
 }

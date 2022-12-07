@@ -89,7 +89,7 @@ class AddCarsFragment : Fragment() {
     //TODO: Add confirm for vehicle deleting
 
     private fun addCars() {
-        if (isValidEntry()) {
+        if (isValidEntry() || isValidLicensePlate()) {
             viewModel.addCars(
                 binding.nameInput.text.toString(),
                 binding.modelInput.text.toString(),
@@ -123,12 +123,13 @@ class AddCarsFragment : Fragment() {
             binding.modelInput.text.toString().isBlank() -> R.string.model_error
             binding.ageInput.text.toString().isBlank() -> R.string.age_error
             binding.chilometerInput.text.toString().isBlank() -> R.string.chilometer_error
+            binding.licenseInput.text.toString().isBlank() -> R.string.add
             else -> R.string.toast_error
         }
     }
 
     private fun updateCars() {
-        if (isValidEntry()) {
+        if (isValidEntry() || isValidLicensePlate()) {
             viewModel.updateCars(
                 id = navigationArgs.id,
                 name = binding.nameInput.text.toString(),
@@ -175,7 +176,11 @@ class AddCarsFragment : Fragment() {
         binding.modelInput.text.toString(),
         binding.ageInput.text.toString(),
         binding.chilometerInput.text.toString(),
+        binding.licenseInput.text.toString()
+    )
 
+    private fun isValidLicensePlate() = viewModel.isValidLicensePlate(
+        binding.licenseInput.text.toString()
     )
 
     override fun onDestroyView() {
