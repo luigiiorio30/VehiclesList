@@ -11,7 +11,7 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="323dp"
+        android:layout_width="match_parent"
         android:layout_height="300dp"
         android:paddingStart="16dp"
         android:paddingEnd="16dp">
@@ -20,11 +20,10 @@
             android:id="@+id/image"
             android:layout_width="188dp"
             android:layout_height="187dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="6dp"
             android:background="@color/primaryDarkColor"
             android:scaleType="centerInside"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:riv_corner_radius="20dip"
