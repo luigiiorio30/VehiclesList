@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="cars"
+            type="com.example.vehichleslist.model.Cars" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="323dp"
+        android:layout_height="300dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/image"
+            android:layout_width="188dp"
+            android:layout_height="187dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/primaryDarkColor"
+            android:scaleType="centerInside"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:riv_corner_radius="20dip"
+            app:riv_mutate_background="true" />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@{cars.name}"
+            android:textAllCaps="true"
+            android:textAppearance="?attr/textAppearanceHeadline6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/image"
+            tools:text="Name: x" />
+
+        <TextView
+            android:id="@+id/model"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/modelInf"
+            android:textAppearance="?attr/textAppearanceBody2"
+            app:layout_constraintStart_toStartOf="@+id/name"
+            app:layout_constraintTop_toBottomOf="@+id/name"
+            tools:text="Model: " />
+
+        <TextView
+            android:id="@+id/modelInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@{cars.model}"
+            android:textAppearance="?attr/textAppearanceBody2"
+            app:layout_constraintBottom_toBottomOf="@+id/model"
+            app:layout_constraintStart_toEndOf="@+id/model"
+            tools:text="model" />
+
+        <TextView
+            android:id="@+id/plateInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/plateInf"
+            android:textAppearance="?attr/textAppearanceBody2"
+            app:layout_constraintStart_toStartOf="@+id/model"
+            app:layout_constraintTop_toBottomOf="@+id/model"
+            tools:text="Plate:" />
+
+        <TextView
+            android:id="@+id/plate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginStart="8dp"
+            android:text="@{cars.license}"
+            android:textAppearance="?attr/textAppearanceBody2"
+            app:layout_constraintBottom_toBottomOf="@+id/plateInfo"
+            app:layout_constraintStart_toEndOf="@+id/plateInfo"
+            tools:text="plate" />
+
+        <View
+            android:id="@+id/divider_model"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?attr/dividerHorizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:layout_editor_absoluteX="28dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
