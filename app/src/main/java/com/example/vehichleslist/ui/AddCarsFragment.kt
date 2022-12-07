@@ -70,25 +70,12 @@ class AddCarsFragment : Fragment() {
                 }
             }
 
-            binding.deleteBtn.visibility = View.VISIBLE
-            binding.deleteBtn.setOnClickListener {
-                deleteCars(cars)
-            }
         } else {
             binding.saveBtn.setOnClickListener {
                 addCars()
             }
         }
     }
-
-
-    private fun deleteCars(cars: Cars) {
-        viewModel.deleteCars(cars)
-        findNavController().navigate(
-            R.id.action_addCarsFragment_to_CarsListFragment
-        )
-    }
-
 
     private fun addCars() {
         if (isValidEntry() || isValidLicensePlate()) {
