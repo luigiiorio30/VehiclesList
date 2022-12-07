@@ -1,6 +1,7 @@
 package com.example.vehichleslist.ui
 
 import android.annotation.SuppressLint
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -97,11 +98,19 @@ class CarsDetailFragment : Fragment() {
     }
 
     private fun deleteCars(cars: Cars) {
-        viewModel.deleteCars(cars)
-        findNavController().navigate(
-            R.id.action_carsDetailFragment_to_carsListFragment
-        )
+        AlertDialog.Builder(requireContext())
+            .setTitle("Confirm Delete")
+            .setMessage("Are you sure you want to delete this car?")
+            .setPositiveButton("Delete") { _, _ ->
+                viewModel.deleteCars(cars)
+                findNavController().navigate(
+                R.id.action_carsDetailFragment_to_carsListFragment
+                )
+            }
+            .setNegativeButton("Cancel", null)
+            .show()
     }
+
 
     //TODO: Remember to add personalized image or icon in this fragment
 

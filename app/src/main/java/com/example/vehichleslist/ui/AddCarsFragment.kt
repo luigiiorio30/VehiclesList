@@ -89,7 +89,6 @@ class AddCarsFragment : Fragment() {
         )
     }
 
-    //TODO: Add confirm for vehicle deleting
 
     private fun addCars() {
         if (isValidEntry() || isValidLicensePlate()) {

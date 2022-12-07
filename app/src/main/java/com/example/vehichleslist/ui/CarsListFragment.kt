@@ -38,8 +38,6 @@ class CarsListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel.getLogo()
 
-        //fixed viewModel.logoDataApi.value in viewModel.logoDataApi
-
         val adapter = CarsListAdapter(logoDataApi = viewModel.logoDataApi, clickListener = { cars ->
             val action =
                 CarsListFragmentDirections.actionCarsListFragmentToCarsDetailFragment(cars.id)
