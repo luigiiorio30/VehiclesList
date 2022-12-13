@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fillViewport="true">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:textAllCaps="true"
+        android:textAppearance="?attr/textAppearanceHeadline6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Name" />
+
+
+    <ImageView
+        android:id="@+id/ic_model"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_car"
+        app:layout_constraintEnd_toStartOf="@+id/model"
+        app:layout_constraintTop_toBottomOf="@+id/name" />
+
+    <TextView
+        android:id="@+id/model"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:textAppearance="?attr/textAppearanceBody2"
+        app:layout_constraintBottom_toBottomOf="@id/ic_model"
+        app:layout_constraintEnd_toEndOf="@+id/name"
+        app:layout_constraintTop_toTopOf="@id/ic_model"
+        tools:text="Model" />
+
+    <View
+        android:id="@+id/divider_model"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?attr/dividerHorizontal"
+        android:layout_margin="16dp"
+        app:layout_constraintTop_toBottomOf="@id/ic_model"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/ic_calendar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/ic_calendar"
+        app:layout_constraintEnd_toStartOf="@+id/age"
+        app:layout_constraintTop_toBottomOf="@+id/divider_model" />
+
+    <TextView
+        android:id="@+id/age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:textAppearance="?attr/textAppearanceBody2"
+        app:layout_constraintBottom_toBottomOf="@id/ic_calendar"
+        app:layout_constraintStart_toStartOf="@+id/model"
+        app:layout_constraintTop_toTopOf="@+id/ic_calendar"
+        tools:text="Age" />
+
+    <View
+        android:id="@+id/divider_age"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?attr/dividerHorizontal"
+        android:layout_margin="16dp"
+        app:layout_constraintTop_toBottomOf="@id/ic_calendar"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/ic_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_type"
+        app:layout_constraintEnd_toStartOf="@+id/type"
+        app:layout_constraintTop_toBottomOf="@+id/divider_age" />
+
+    <TextView
+        android:id="@+id/type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:singleLine="false"
+        android:textAppearance="?attr/textAppearanceBody2"
+        app:layout_constraintBottom_toBottomOf="@id/ic_type"
+        app:layout_constraintStart_toStartOf="@+id/age"
+        app:layout_constraintTop_toTopOf="@+id/ic_type"
+        tools:text="Type" />
+
+    <View
+        android:id="@+id/divider_type"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?attr/dividerHorizontal"
+        android:layout_margin="16dp"
+        app:layout_constraintTop_toBottomOf="@id/ic_type"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/ic_fuel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_fuel"
+        app:layout_constraintEnd_toStartOf="@+id/fuel"
+        app:layout_constraintTop_toBottomOf="@+id/divider_type" />
+
+    <TextView
+        android:id="@+id/fuel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:textAppearance="?attr/textAppearanceBody2"
+        app:layout_constraintBottom_toBottomOf="@id/ic_fuel"
+        app:layout_constraintStart_toStartOf="@+id/type"
+        app:layout_constraintTop_toTopOf="@+id/ic_fuel"
+        tools:text="Fuel type" />
+
+    <View
+    android:id="@+id/divider_fuel"
+    android:layout_width="match_parent"
+    android:layout_height="1dp"
+    android:background="?attr/dividerHorizontal"
+    android:layout_margin="16dp"
+    app:layout_constraintTop_toBottomOf="@id/ic_fuel"
+    app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/ic_chilom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_chilometer"
+        app:layout_constraintEnd_toStartOf="@+id/chilometer"
+        app:layout_constraintTop_toBottomOf="@+id/divider_fuel" />
+
+    <TextView
+        android:id="@+id/chilometer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:textAppearance="?attr/textAppearanceBody2"
+        app:layout_constraintBottom_toBottomOf="@id/ic_chilom"
+        app:layout_constraintStart_toStartOf="@+id/fuel"
+        app:layout_constraintTop_toTopOf="@+id/ic_chilom"
+        tools:text="Chilometer" />
+
+    <View
+        android:id="@+id/divider_chilom"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_margin="16dp"
+        android:background="?attr/dividerHorizontal"
+        app:layout_constraintEnd_toEndOf="@+id/chilometer"
+        app:layout_constraintStart_toStartOf="@+id/ic_chilom"
+        app:layout_constraintTop_toBottomOf="@id/ic_chilom" />
+
+    <ImageView
+        android:id="@+id/ic_license_plate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_license_plate"
+        app:layout_constraintEnd_toStartOf="@+id/license_plate"
+        app:layout_constraintTop_toBottomOf="@+id/divider_chilom" />
+
+    <TextView
+        android:id="@+id/license_plate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:textAppearance="?attr/textAppearanceBody2"
+        app:layout_constraintBottom_toBottomOf="@id/ic_license_plate"
+        app:layout_constraintStart_toStartOf="@+id/chilometer"
+        app:layout_constraintTop_toTopOf="@+id/ic_license_plate"
+        tools:text="License plate" />
+
+    <View
+        android:id="@+id/divider_plate"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_margin="16dp"
+        android:background="?attr/dividerHorizontal"
+        app:layout_constraintTop_toBottomOf="@id/ic_license_plate"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <ImageView
+        android:id="@+id/ic_displacement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_piston"
+        app:layout_constraintEnd_toStartOf="@+id/displacement"
+        app:layout_constraintTop_toBottomOf="@id/divider_plate" />
+
+    <TextView
+        android:id="@+id/displacement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:textAppearance="?attr/textAppearanceBody2"
+        app:layout_constraintBottom_toBottomOf="@id/ic_displacement"
+        app:layout_constraintStart_toStartOf="@+id/license_plate"
+        app:layout_constraintTop_toTopOf="@+id/ic_displacement"
+        tools:text="Displacement" />
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="95dp"
+        android:layout_height="95dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_under_construction"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/displacement" />
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/edit_cars_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:visibility="gone"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@drawable/ic_build"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/open_cars_fab" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/open_cars_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@drawable/ic_add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/delete_cars_fab"
+        android:layout_width="wrap_content"
+        android:visibility="gone"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@drawable/no_car"
+        app:layout_constraintBottom_toTopOf="@id/edit_cars_fab"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- TODO: Fix layout for better user experience-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
