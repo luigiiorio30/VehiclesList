@@ -11,7 +11,7 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingStart="16dp"
         android:paddingEnd="16dp">
@@ -20,7 +20,7 @@
             android:id="@+id/image"
             android:layout_width="188dp"
             android:layout_height="187dp"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="32dp"
             android:background="@color/primaryDarkColor"
             android:scaleType="centerInside"
             app:layout_constraintEnd_toEndOf="parent"
@@ -67,8 +67,10 @@
             android:id="@+id/plateInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
             android:text="@string/plateInf"
             android:textAppearance="?attr/textAppearanceBody2"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/model"
             app:layout_constraintTop_toBottomOf="@+id/model"
             tools:text="Plate:" />
@@ -84,14 +86,6 @@
             app:layout_constraintBottom_toBottomOf="@+id/plateInfo"
             app:layout_constraintStart_toEndOf="@+id/plateInfo"
             tools:text="plate" />
-
-        <View
-            android:id="@+id/divider_model"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="?attr/dividerHorizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            tools:layout_editor_absoluteX="28dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
