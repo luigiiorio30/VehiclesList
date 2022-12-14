@@ -31,7 +31,7 @@
             android:textAppearance="?attr/textAppearanceHeadline6"
             app:layout_constraintStart_toEndOf="@+id/divider_license2"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="Brand" />
+            tools:text="Model" />
 
         <TextView
             android:id="@+id/name"
@@ -45,36 +45,15 @@
             tools:text="Name" />
 
 
-        <ImageView
-            android:id="@+id/ic_model"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:layout_marginTop="16dp"
-            android:src="@drawable/ic_car"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/image" />
-
-        <TextView
-            android:id="@+id/model"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:maxLines="1"
-            android:textAppearance="?attr/textAppearanceBody2"
-            app:layout_constraintBottom_toBottomOf="@id/ic_model"
-            app:layout_constraintStart_toEndOf="@id/ic_model"
-            app:layout_constraintTop_toTopOf="@id/ic_model"
-            tools:text="Model" />
-
         <View
             android:id="@+id/divider_model"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_margin="16dp"
+            android:layout_marginTop="16dp"
             android:background="?attr/dividerHorizontal"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ic_model" />
+            app:layout_constraintTop_toBottomOf="@+id/image" />
 
         <ImageView
             android:id="@+id/ic_calendar"
