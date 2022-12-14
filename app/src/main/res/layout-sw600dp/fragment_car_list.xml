@@ -19,7 +19,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:spanCount="3" />
 
-       <!-- TODO: Add no vehicles image and text-->
         <TextView
             android:id="@+id/description"
             android:layout_width="wrap_content"

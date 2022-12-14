@@ -18,6 +18,8 @@ import com.example.vehichleslist.ui.viewmodel.CarsViewModelFactory
 
 class CarsListFragment : Fragment() {
 
+    //TODO: Remember to add text and image when CarList is not populated
+
     private val viewModel: CarsViewModel by activityViewModels {
         CarsViewModelFactory(
             (activity?.application as BaseApplication).database.carsDao()
