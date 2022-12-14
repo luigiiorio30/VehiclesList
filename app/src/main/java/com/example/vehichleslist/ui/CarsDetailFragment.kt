@@ -120,9 +120,8 @@ class CarsDetailFragment : Fragment() {
     @SuppressLint("SetTextI18n")
     private fun bindCars() {
         binding.apply {
-            model2?.text = cars.model
+            model2.text = cars.model
             name.text = cars.name
-            model?.text = "Model: " + cars.model
             age.text = "Age of production: " + cars.age
             type.text = "Model: " + cars.type
             fuel.text = "Type of fuel: " + cars.fuel
