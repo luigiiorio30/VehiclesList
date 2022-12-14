@@ -32,10 +32,26 @@ class CarsDetailFragment : Fragment() {
             (activity?.application as BaseApplication).database.carsDao()
         )
     }
-    private val rotateOpen: Animation by lazy { AnimationUtils.loadAnimation(context, R.anim.rotate_open_anim) }
-    private val rotateClose: Animation by lazy { AnimationUtils.loadAnimation(context, R.anim.rotate_close_anim) }
-    private val fromBottom: Animation by lazy { AnimationUtils.loadAnimation(context, R.anim.from_bottom_animation) }
-    private val toBottom: Animation by lazy { AnimationUtils.loadAnimation(context, R.anim.to_bottom_animation) }
+    private val rotateOpen: Animation by lazy {
+        AnimationUtils.loadAnimation(
+            context, R.anim.rotate_open_anim
+        )
+    }
+    private val rotateClose: Animation by lazy {
+        AnimationUtils.loadAnimation(
+            context, R.anim.rotate_close_anim
+        )
+    }
+    private val fromBottom: Animation by lazy {
+        AnimationUtils.loadAnimation(
+            context, R.anim.from_bottom_animation
+        )
+    }
+    private val toBottom: Animation by lazy {
+        AnimationUtils.loadAnimation(
+            context, R.anim.to_bottom_animation
+        )
+    }
     private var clicked = false
 
     private lateinit var cars: Cars
@@ -45,8 +61,7 @@ class CarsDetailFragment : Fragment() {
 
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
 
         _binding = FragmentCarsDetailBinding.inflate(inflater, container, false)
@@ -80,21 +95,21 @@ class CarsDetailFragment : Fragment() {
     }
 
     private fun setVisibility(clicked: Boolean) {
-        if (!clicked){
+        if (!clicked) {
             binding.editCarsFab.visibility = View.VISIBLE
             binding.deleteCarsFab.visibility = View.VISIBLE
-        }else{
+        } else {
             binding.editCarsFab.visibility = View.GONE
             binding.deleteCarsFab.visibility = View.GONE
         }
     }
 
     private fun setAnimation(clicked: Boolean) {
-        if (!clicked){
+        if (!clicked) {
             binding.editCarsFab.startAnimation(fromBottom)
             binding.deleteCarsFab.startAnimation(fromBottom)
             binding.openCarsFab.startAnimation(rotateOpen)
-        }else{
+        } else {
             binding.editCarsFab.startAnimation(toBottom)
             binding.deleteCarsFab.startAnimation(toBottom)
             binding.openCarsFab.startAnimation(rotateClose)
@@ -102,19 +117,15 @@ class CarsDetailFragment : Fragment() {
     }
 
 
-
     private fun deleteCars(cars: Cars) {
-        AlertDialog.Builder(requireContext())
-            .setTitle("Confirm Delete")
+        AlertDialog.Builder(requireContext()).setTitle("Confirm Delete")
             .setMessage("Are you sure you want to delete this car?")
             .setPositiveButton("Delete") { _, _ ->
                 viewModel.deleteCars(cars)
                 findNavController().navigate(
-                R.id.action_carsDetailFragment_to_carsListFragment
+                    R.id.action_carsDetailFragment_to_carsListFragment
                 )
-            }
-            .setNegativeButton("Cancel", null)
-            .show()
+            }.setNegativeButton("Cancel", null).show()
     }
 
     @SuppressLint("SetTextI18n")
@@ -123,19 +134,20 @@ class CarsDetailFragment : Fragment() {
             model2.text = cars.model
             name.text = cars.name
             age.text = "Age of production: " + cars.age
-            type.text = "Model: " + cars.type
+            type.text = "Type: " + cars.type
             fuel.text = "Type of fuel: " + cars.fuel
             chilometer.text = "Total chilometer: " + cars.chilom + " km"
-            licensePlate.text = "License plate: " +  cars.license
+            licensePlate.text = "License plate: " + cars.license
             displacement.text = "Displacement: " + cars.displac + " cc"
+
             editCarsFab.setOnClickListener {
-                val action = CarsDetailFragmentDirections
-                    .actionCarsDetailFragmentToAddCarsFragment(cars.id)
+                val action =
+                    CarsDetailFragmentDirections.actionCarsDetailFragmentToAddCarsFragment(cars.id)
                 findNavController().navigate(action)
             }
             val observer = Observer<List<Logo>> {
-                setAndGetUriByBrandParsingListOfLogoAndImageView(logoDataApi = viewModel.logoDataApi.value, cars.name,
-                    image as ImageView
+                setAndGetUriByBrandParsingListOfLogoAndImageView(
+                    logoDataApi = viewModel.logoDataApi.value, cars.name, image as ImageView
                 )
             }
             viewModel.logoDataApi.observe(viewLifecycleOwner, observer)

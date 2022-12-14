@@ -67,6 +67,7 @@
             android:id="@+id/age"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="20sp"
             android:layout_marginStart="8dp"
             android:maxLines="1"
             android:textAppearance="?attr/textAppearanceBody2"
@@ -99,6 +100,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:maxLines="1"
+            android:textSize="20sp"
             android:singleLine="false"
             android:textAppearance="?attr/textAppearanceBody2"
             app:layout_constraintBottom_toBottomOf="@id/ic_type"
@@ -128,6 +130,7 @@
             android:id="@+id/fuel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="20sp"
             android:layout_marginStart="8dp"
             android:maxLines="1"
             android:textAppearance="?attr/textAppearanceBody2"
@@ -159,6 +162,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:textSize="20sp"
             android:maxLines="1"
             android:textAppearance="?attr/textAppearanceBody2"
             app:layout_constraintBottom_toBottomOf="@id/ic_chilom"
@@ -189,6 +193,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:textSize="20sp"
             android:maxLines="1"
             android:textAppearance="?attr/textAppearanceBody2"
             app:layout_constraintBottom_toBottomOf="@id/ic_license_plate"
@@ -219,6 +224,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:textSize="20sp"
             android:maxLines="1"
             android:textAppearance="?attr/textAppearanceBody2"
             app:layout_constraintBottom_toBottomOf="@id/ic_displacement"
@@ -270,8 +276,6 @@
             android:visibility="gone"
             app:layout_constraintBottom_toTopOf="@id/edit_cars_fab"
             app:layout_constraintEnd_toEndOf="parent" />
-
-        <!-- TODO: Fix layout for better user experience-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

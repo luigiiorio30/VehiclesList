@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android"
     android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -38,8 +38,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:textAllCaps="true"
-            android:textSize="24sp"
             android:textAppearance="?attr/textAppearanceHeadline6"
+            android:textSize="24sp"
             app:layout_constraintStart_toStartOf="@+id/divider_model"
             app:layout_constraintTop_toBottomOf="@+id/image"
             tools:text="Name" />
@@ -70,6 +70,7 @@
             android:layout_marginStart="8dp"
             android:maxLines="1"
             android:textAppearance="?attr/textAppearanceBody2"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="@id/ic_calendar"
             app:layout_constraintStart_toEndOf="@id/ic_calendar"
             app:layout_constraintTop_toTopOf="@+id/ic_calendar"
@@ -101,6 +102,7 @@
             android:maxLines="1"
             android:singleLine="false"
             android:textAppearance="?attr/textAppearanceBody2"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="@id/ic_type"
             app:layout_constraintStart_toEndOf="@id/ic_type"
             app:layout_constraintTop_toTopOf="@+id/ic_type"
@@ -131,6 +133,7 @@
             android:layout_marginStart="8dp"
             android:maxLines="1"
             android:textAppearance="?attr/textAppearanceBody2"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="@id/ic_fuel"
             app:layout_constraintStart_toEndOf="@id/ic_fuel"
             app:layout_constraintTop_toTopOf="@+id/ic_fuel"
@@ -161,6 +164,7 @@
             android:layout_marginStart="8dp"
             android:maxLines="1"
             android:textAppearance="?attr/textAppearanceBody2"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="@id/ic_chilom"
             app:layout_constraintStart_toEndOf="@id/ic_chilom"
             app:layout_constraintTop_toTopOf="@+id/ic_chilom"
@@ -191,6 +195,7 @@
             android:layout_marginStart="8dp"
             android:maxLines="1"
             android:textAppearance="?attr/textAppearanceBody2"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="@id/ic_license_plate"
             app:layout_constraintStart_toEndOf="@id/ic_license_plate"
             app:layout_constraintTop_toTopOf="@+id/ic_license_plate"
@@ -221,6 +226,7 @@
             android:layout_marginStart="8dp"
             android:maxLines="1"
             android:textAppearance="?attr/textAppearanceBody2"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="@id/ic_displacement"
             app:layout_constraintStart_toEndOf="@id/ic_displacement"
             app:layout_constraintTop_toTopOf="@+id/ic_displacement"
@@ -270,8 +276,6 @@
             android:visibility="gone"
             app:layout_constraintBottom_toTopOf="@id/edit_cars_fab"
             app:layout_constraintEnd_toEndOf="parent" />
-
-        <!-- TODO: Fix layout for better user experience-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
