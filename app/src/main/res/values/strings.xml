@@ -10,7 +10,7 @@
     <string name="setMenu">Settings</string>
     <string name="fuel">Fuel type </string>
     <string name="chilometer">Total chilometer* </string>
-    <string name="license_plate">License plate* </string>
+    <string name="license_plate">Plate* </string>
     <string name="displacement">Displacement </string>
     <string name="unit_cil">cm^3</string>
     <string name="unit_km">km</string>
