@@ -31,7 +31,9 @@ https://github.com/ErCrasher27/carl-maker-logos.json
 
 ## Screenshot 
 
-![Screenshot1](https://user-images.githubusercontent.com/39243394/207561698-37a94ac7-eff0-4a01-9fea-dcbfe6f6dbcf.png)![Screenshot2](https://user-images.githubusercontent.com/39243394/207561750-06828018-40b3-4dd1-8a2d-59073dbcc157.png)![Screenshot3](https://user-images.githubusercontent.com/39243394/207561815-5ff45f35-4f56-47ba-853c-d280fd73516f.png)
+![Screenshot1](https://user-images.githubusercontent.com/39243394/207561698-37a94ac7-eff0-4a01-9fea-dcbfe6f6dbcf.png)<width="400" height="790">
+![Screenshot2](https://user-images.githubusercontent.com/39243394/207561750-06828018-40b3-4dd1-8a2d-59073dbcc157.png)<width="400" height="790">
+![Screenshot3](https://user-images.githubusercontent.com/39243394/207561815-5ff45f35-4f56-47ba-853c-d280fd73516f.png)<width="400" height="790">
 
 
 
