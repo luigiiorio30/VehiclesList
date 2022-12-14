@@ -8,14 +8,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.vehichleslist.BaseApplication
 import com.example.vehichleslist.R
 import com.example.vehichleslist.databinding.FragmentCarsDetailBinding
 import com.example.vehichleslist.model.Cars
+import com.example.vehichleslist.network.Logo
 import com.example.vehichleslist.setAndGetUriByBrandParsingListOfLogoAndImageView
 import com.example.vehichleslist.ui.viewmodel.CarsViewModel
 import com.example.vehichleslist.ui.viewmodel.CarsViewModelFactory
@@ -51,6 +54,7 @@ class CarsDetailFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
         super.onViewCreated(view, savedInstanceState)
         val id = navigationArgs.id
 
@@ -97,6 +101,8 @@ class CarsDetailFragment : Fragment() {
         }
     }
 
+
+
     private fun deleteCars(cars: Cars) {
         AlertDialog.Builder(requireContext())
             .setTitle("Confirm Delete")
@@ -111,12 +117,10 @@ class CarsDetailFragment : Fragment() {
             .show()
     }
 
-
-    //TODO: Remember to add personalized image or icon in this fragment
-
     @SuppressLint("SetTextI18n")
     private fun bindCars() {
         binding.apply {
+            model2?.text = cars.model
             name.text = cars.name
             model.text = "Model: " + cars.model
             age.text = "Age of production: " + cars.age
@@ -125,12 +129,17 @@ class CarsDetailFragment : Fragment() {
             chilometer.text = "Total chilometer: " + cars.chilom + " km"
             licensePlate.text = "License plate: " +  cars.license
             displacement.text = "Displacement: " + cars.displac + " cc"
-       //     setAndGetUriByBrandParsingListOfLogoAndImageView(viewModel.logoDataApi.value, cars.name, image)
             editCarsFab.setOnClickListener {
                 val action = CarsDetailFragmentDirections
                     .actionCarsDetailFragmentToAddCarsFragment(cars.id)
                 findNavController().navigate(action)
             }
+            val observer = Observer<List<Logo>> {
+                setAndGetUriByBrandParsingListOfLogoAndImageView(logoDataApi = viewModel.logoDataApi.value, cars.name,
+                    image as ImageView
+                )
+            }
+            viewModel.logoDataApi.observe(viewLifecycleOwner, observer)
         }
     }
 }
