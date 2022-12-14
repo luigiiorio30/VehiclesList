@@ -122,7 +122,7 @@ class CarsDetailFragment : Fragment() {
         binding.apply {
             model2?.text = cars.model
             name.text = cars.name
-            model.text = "Model: " + cars.model
+            model?.text = "Model: " + cars.model
             age.text = "Age of production: " + cars.age
             type.text = "Model: " + cars.type
             fuel.text = "Type of fuel: " + cars.fuel

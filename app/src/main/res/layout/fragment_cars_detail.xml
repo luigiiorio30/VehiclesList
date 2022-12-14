@@ -14,34 +14,33 @@
             android:id="@+id/divider_license2"
             android:layout_width="1dp"
             android:layout_height="20dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginStart="8dp"
             android:background="?attr/dividerVertical"
             app:layout_constraintBottom_toBottomOf="@+id/name"
-            app:layout_constraintEnd_toStartOf="@+id/model2"
             app:layout_constraintStart_toEndOf="@+id/name"
-            app:layout_constraintTop_toTopOf="@+id/name" />
+            app:layout_constraintTop_toTopOf="@+id/model2" />
 
         <TextView
             android:id="@+id/model2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:layout_marginStart="8dp"
             android:textAllCaps="true"
             android:textAppearance="?attr/textAppearanceHeadline6"
+            app:layout_constraintBottom_toBottomOf="@+id/name"
             app:layout_constraintStart_toEndOf="@+id/divider_license2"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/name"
             tools:text="Model" />
 
         <TextView
             android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:layout_marginTop="8dp"
             android:textAllCaps="true"
             android:textAppearance="?attr/textAppearanceHeadline6"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/divider_model"
+            app:layout_constraintTop_toBottomOf="@+id/image"
             tools:text="Name" />
 
 
@@ -50,10 +49,9 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_margin="16dp"
-            android:layout_marginTop="16dp"
             android:background="?attr/dividerHorizontal"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/image" />
+            app:layout_constraintTop_toBottomOf="@+id/name" />
 
         <ImageView
             android:id="@+id/ic_calendar"
@@ -62,7 +60,7 @@
             android:layout_margin="16dp"
             android:src="@drawable/ic_calendar"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/divider_model" />
+            app:layout_constraintTop_toBottomOf="@+id/divider_model" />
 
         <TextView
             android:id="@+id/age"
@@ -236,7 +234,7 @@
             android:scaleType="fitCenter"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/name"
+            app:layout_constraintTop_toTopOf="parent"
             app:riv_corner_radius="20dip"
             app:riv_mutate_background="true" />
 
