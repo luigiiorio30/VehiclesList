@@ -6,5 +6,6 @@
         android:id="@+id/action_settings"
         android:orderInCategory="100"
         android:title="@string/setMenu"
+        android:visible="false"
         app:showAsAction="never" />
 </menu>

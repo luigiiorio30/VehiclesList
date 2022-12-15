@@ -98,9 +98,13 @@ class CarsDetailFragment : Fragment() {
         if (!clicked) {
             binding.editCarsFab.visibility = View.VISIBLE
             binding.deleteCarsFab.visibility = View.VISIBLE
+            binding.editCarsFab.isEnabled = true
+            binding.deleteCarsFab.isEnabled = true
         } else {
             binding.editCarsFab.visibility = View.GONE
             binding.deleteCarsFab.visibility = View.GONE
+            binding.editCarsFab.isEnabled = false
+            binding.deleteCarsFab.isEnabled = false
         }
     }
 

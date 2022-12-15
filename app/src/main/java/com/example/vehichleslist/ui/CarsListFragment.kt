@@ -32,6 +32,7 @@ class CarsListFragment : Fragment() {
     ): View {
         _binding = FragmentCarListBinding.inflate(inflater, container, false)
         return binding.root
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -50,7 +51,15 @@ class CarsListFragment : Fragment() {
         viewModel.logoDataApi.observe(viewLifecycleOwner, observer)
         viewModel.cars.observe(this.viewLifecycleOwner) { cars ->
             cars.let { adapter.submitList(it) }
-        }
+            if (cars.size != 0){
+                binding.description.visibility= View.INVISIBLE
+                binding.image.visibility= View.INVISIBLE
+                }else{
+                binding.description.visibility= View.VISIBLE
+                binding.image.visibility= View.VISIBLE
+                }
+            }
+
 
         binding.apply {
             lifecycleOwner = viewLifecycleOwner

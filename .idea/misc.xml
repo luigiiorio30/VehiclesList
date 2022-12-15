@@ -12,16 +12,21 @@
         <entry key="..\:/Users/iorio/Desktop/VehichlesList/app/src/main/res/layout/nav_host_fragment_content_main.xml" value="0.1875" />
         <entry key="..\:/Users/iorio/Desktop/VehichlesList/app/src/main/res/menu/menu_main.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/iorio/Desktop/VehichlesList/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.159" />
+        <entry key="..\:/Users/iorio/VeichlesList/app/src/main/res/drawable/ic_car.xml" value="0.1" />
+        <entry key="..\:/Users/iorio/VeichlesList/app/src/main/res/drawable/overturned_vehicle_svgrepo_com.xml" value="0.1" />
         <entry key="..\:/Users/iorio/VeichlesList/app/src/main/res/layout-land/fragment_add_car.xml" value="0.31040564373897706" />
         <entry key="..\:/Users/iorio/VeichlesList/app/src/main/res/layout-sw600dp/fragment_add_car.xml" value="0.4964114832535885" />
         <entry key="..\:/Users/iorio/VeichlesList/app/src/main/res/layout-sw600dp/fragment_car_list.xml" value="0.3451492537313433" />
         <entry key="..\:/Users/iorio/VeichlesList/app/src/main/res/layout-sw600dp/fragment_cars_detail.xml" value="0.5" />
         <entry key="..\:/Users/iorio/VeichlesList/app/src/main/res/layout-sw600dp/list_item_car.xml" value="0.33220338983050846" />
+        <entry key="..\:/Users/iorio/VeichlesList/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/iorio/VeichlesList/app/src/main/res/layout/content_main.xml" value="0.3428398058252427" />
         <entry key="..\:/Users/iorio/VeichlesList/app/src/main/res/layout/fragment_add_car.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/iorio/VeichlesList/app/src/main/res/layout/fragment_car_list.xml" value="0.33" />
         <entry key="..\:/Users/iorio/VeichlesList/app/src/main/res/layout/fragment_cars_detail.xml" value="0.3432971014492754" />
         <entry key="..\:/Users/iorio/VeichlesList/app/src/main/res/layout/fragment_list_add_car.xml" value="0.4702669902912621" />
         <entry key="..\:/Users/iorio/VeichlesList/app/src/main/res/layout/list_item_car.xml" value="0.25" />
+        <entry key="..\:/Users/iorio/VeichlesList/app/src/main/res/menu/menu_main.xml" value="0.55" />
       </map>
     </option>
   </component>

@@ -44,7 +44,6 @@ class CarsViewModel(private val carsDao: CarsDao) : ViewModel() {
         }
     }
 
-
     fun addCars(
         name: String,
         model: String,
