@@ -25,16 +25,16 @@ https://github.com/ErCrasher27/carl-maker-logos.json
 
 ## Tested on:
 
-- OnePlus 5 (cheeseburger)
-- OnePlus 6 (enchilada)
-- OnePlus 6t (fajita)
-- Xiaomi Redmi Note 10 Pro (sweet)
-- Xiaomi 12 Pro (zeus)
+- [OnePlus 5](https://www.gsmarena.com/oneplus_5-8647.php)
+- [OnePlus 6](https://www.gsmarena.com/oneplus_6-9109.php)
+- [OnePlus 6t](https://www.gsmarena.com/oneplus_6t-9350.php)
+- [Xiaomi Redmi Note 10 Pro](https://www.gsmarena.com/xiaomi_redmi_note_10_pro-10662.php)
+- [Xiaomi 12 Pro](https://www.gsmarena.com/xiaomi_12_pro-11287.php)
 
 
 ## App logo
 
-![Logo](https://user-images.githubusercontent.com/39243394/207560887-77b66f58-fbcb-4f3e-85c9-0afcc6ca5874.png)
+![Logo](https://user-images.githubusercontent.com/39243394/207952527-6a33662f-5a2f-44c2-a2b6-bea943c8c73f.png)
 
 
 ## Screenshot 
@@ -45,15 +45,15 @@ List of cars
 
 Cars detail
 
-![Screenshot1](https://user-images.githubusercontent.com/39243394/207561750-06828018-40b3-4dd1-8a2d-59073dbcc157.png)
+![Screenshot1](https://user-images.githubusercontent.com/39243394/207952032-906a03af-0eb2-4373-8888-0e71102ee75b.png)
 
 Add cars
 
-![Screenshot2](https://user-images.githubusercontent.com/39243394/207561815-5ff45f35-4f56-47ba-853c-d280fd73516f.png)
+![Screenshot2](https://user-images.githubusercontent.com/39243394/207952262-fbc3cb0f-ab78-4c90-9b88-65c3e921a5f3.png)
 
 Notify
 
-![Screenshot3](https://user-images.githubusercontent.com/39243394/207563931-894a759b-3fd4-49f0-85f5-0fc40de63050.png)
+![Screenshot3](https://user-images.githubusercontent.com/39243394/207952148-f25b68e4-eda0-49b8-9357-d665fbe81226.png)
 
 ## License
 
