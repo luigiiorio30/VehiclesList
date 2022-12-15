@@ -41,7 +41,7 @@ https://github.com/ErCrasher27/carl-maker-logos.json
 
 List of cars
 
-![Screenshot](https://user-images.githubusercontent.com/39243394/207561698-37a94ac7-eff0-4a01-9fea-dcbfe6f6dbcf.png) 
+![Screenshot](https://user-images.githubusercontent.com/39243394/207951510-028f245c-7a5d-4dcf-a239-e06edee60e41.png) 
 
 Cars detail
 
