@@ -6,20 +6,48 @@ import com.example.vehichleslist.data.CarsDao
 import com.example.vehichleslist.model.Cars
 import com.example.vehichleslist.network.Logo
 import com.example.vehichleslist.network.LogoApi
+import com.example.vehichleslist.network.fuel.FuelApi
+import com.example.vehichleslist.network.fuel.FuelInfo
+import com.example.vehichleslist.network.types.CarTypeApi
+import com.example.vehichleslist.network.types.TypeInfo
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.io.IOException
 
 enum class LogoApiStatus { LOADING, ERROR, DONE }
 class CarsViewModel(private val carsDao: CarsDao) : ViewModel() {
 
+    private var _eventNetworkError = MutableLiveData<Boolean>(false)
 
-    // Status Logo Api
+    val eventNetworkError: LiveData<Boolean>
+        get() = _eventNetworkError
+
+    private var _isNetworkErrorShown = MutableLiveData<Boolean>(false)
+
+    val isNetworkErrorShown: LiveData<Boolean>
+        get() = _isNetworkErrorShown
+
+    var checkedItemFuel = -1
+
+    var checkedItemType = -1
+
+    private val _fuel = MutableLiveData<List<FuelInfo>>()
+
+    val fuel: LiveData<List<FuelInfo>>
+        get() = _fuel
+
+    private val _type = MutableLiveData<List<TypeInfo>>()
+
+    val type: LiveData<List<TypeInfo>>
+        get() = _type
+
     private val _statusLogApi = MutableLiveData<LogoApiStatus>()
-    // val statusLogApi: LiveData<LogoApiStatus> = _statusLogApi
 
     private val _logoDataApi = MutableLiveData<List<Logo>>()
 
     val logoDataApi: LiveData<List<Logo>> = _logoDataApi
+
 
     init {
         getLogo()
@@ -42,6 +70,56 @@ class CarsViewModel(private val carsDao: CarsDao) : ViewModel() {
             }
         }
     }
+
+    /**
+     * Function for acquiring fuel data via API
+     */
+    fun fuelAcquisition() = CoroutineScope(Dispatchers.Main).launch {
+        try {
+            if (_fuel.value == null) {
+                _fuel.postValue(FuelApi.retrofitService.getFuelInfo())
+            }
+
+            _eventNetworkError.value = false
+            _isNetworkErrorShown.value = false
+
+        } catch (networkError: IOException) {
+            _eventNetworkError.value = true
+        }
+    }
+
+    /**
+     * Function to save fuel fuels in a list by API
+     */
+    fun getFuel(): List<String> {
+        return _fuel.value!!.map { e -> e.nameFuel }.distinct()
+    }
+
+
+    /**
+     * Function for acquiring type data via API
+     */
+    fun typeAcquisition() = CoroutineScope(Dispatchers.Main).launch {
+        try {
+            if (_type.value == null) {
+                _type.postValue(CarTypeApi.retrofitService.getCarTypeInfo())
+            }
+
+            _eventNetworkError.value = false
+            _isNetworkErrorShown.value = false
+
+        } catch (networkError: IOException) {
+            _eventNetworkError.value = true
+        }
+    }
+
+    /**
+     * Function to save cars type in a list by API
+     */
+    fun getType(): List<String> {
+        return _type.value!!.map { e -> e.nameType }.distinct()
+    }
+
 
     fun addCars(
         name: String,

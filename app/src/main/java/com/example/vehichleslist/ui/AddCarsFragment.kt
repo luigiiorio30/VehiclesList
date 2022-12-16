@@ -1,5 +1,7 @@
 package com.example.vehichleslist.ui
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -60,6 +62,8 @@ class AddCarsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        viewModel.fuelAcquisition()
+        viewModel.typeAcquisition()
         val id = navigationArgs.id
         if (id > 0) {
 
@@ -73,6 +77,12 @@ class AddCarsFragment : Fragment() {
         } else {
             binding.saveBtn.setOnClickListener {
                 addCars()
+            }
+            binding.fuelInput.setOnClickListener {
+                setFuelCar()
+            }
+            binding.typeInput.setOnClickListener {
+                setTypeCar()
             }
         }
     }
@@ -162,6 +172,12 @@ class AddCarsFragment : Fragment() {
             saveBtn.setOnClickListener {
                 updateCars()
             }
+            binding.fuelInput.setOnClickListener {
+                setFuelCar()
+            }
+            binding.typeInput.setOnClickListener {
+                setTypeCar()
+            }
         }
     }
 
@@ -176,6 +192,58 @@ class AddCarsFragment : Fragment() {
     private fun isValidLicensePlate() = viewModel.isValidLicensePlate(
         binding.licenseInput.text.toString()
     )
+
+    private fun setFuelCar() {
+        val listFuelCar = viewModel.getFuel()
+        val itemsFuel = arrayOfNulls<CharSequence>(listFuelCar.size)
+        for (i in listFuelCar.indices) {
+            itemsFuel[i] = listFuelCar[i]
+        }
+        val builderFuel: AlertDialog.Builder = AlertDialog.Builder(context)
+        builderFuel.setTitle(R.string.fuel)
+        builderFuel.setSingleChoiceItems(
+            itemsFuel,
+            viewModel.checkedItemFuel
+        ) { _: DialogInterface, which ->
+            viewModel.checkedItemFuel = which
+        }
+        builderFuel.setItems(itemsFuel) { _: DialogInterface, which ->
+            viewModel.checkedItemFuel = which
+        }
+        builderFuel.setPositiveButton("Ok") { _: DialogInterface, _ ->
+            binding.fuelInput.setText(itemsFuel[viewModel.checkedItemFuel].toString())
+        }
+        builderFuel.setNegativeButton("Cancel") { _: DialogInterface, _ ->
+            binding.fuelInput.setText("")
+        }
+        builderFuel.show()
+    }
+
+    private fun setTypeCar() {
+        val listTypeCar = viewModel.getType()
+        val itemsTypes = arrayOfNulls<CharSequence>(listTypeCar.size)
+        for (i in listTypeCar.indices) {
+            itemsTypes[i] = listTypeCar[i]
+        }
+        val builderTypes: AlertDialog.Builder = AlertDialog.Builder(context)
+        builderTypes.setTitle(R.string.cars_model)
+        builderTypes.setSingleChoiceItems(
+            itemsTypes,
+            viewModel.checkedItemType
+        ) { _: DialogInterface, which ->
+            viewModel.checkedItemType = which
+        }
+        builderTypes.setItems(itemsTypes) { _: DialogInterface, which ->
+            viewModel.checkedItemType = which
+        }
+        builderTypes.setPositiveButton("Ok") { _: DialogInterface, _ ->
+            binding.typeInput.setText(itemsTypes[viewModel.checkedItemType].toString())
+        }
+        builderTypes.setNegativeButton("Cancel") { _: DialogInterface, _ ->
+            binding.typeInput.setText("")
+        }
+        builderTypes.show()
+    }
 
     override fun onDestroyView() {
         super.onDestroyView()
