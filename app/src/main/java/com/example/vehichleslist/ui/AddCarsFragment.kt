@@ -107,7 +107,7 @@ class AddCarsFragment : Fragment() {
     }
 
    private fun isInputEmpty(): Int{
-        return when (error.isBlank() || binding.licenseInput.text.toString().matches(regex)){
+        return when (error.isBlank()){
             binding.nameInput.text.toString().isBlank() -> R.string.name_error
             binding.modelInput.text.toString().isBlank() -> R.string.model_error
             binding.ageInput.text.toString().isBlank() -> R.string.age_error
