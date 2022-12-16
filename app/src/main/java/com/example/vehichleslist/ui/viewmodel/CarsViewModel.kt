@@ -1,13 +1,12 @@
 package com.example.vehichleslist.ui.viewmodel
 
-import android.widget.Toast
+import android.util.Log
 import androidx.lifecycle.*
 import com.example.vehichleslist.data.CarsDao
 import com.example.vehichleslist.model.Cars
 import com.example.vehichleslist.network.Logo
 import com.example.vehichleslist.network.LogoApi
 import kotlinx.coroutines.Dispatchers
-
 import kotlinx.coroutines.launch
 
 enum class LogoApiStatus { LOADING, ERROR, DONE }
@@ -81,20 +80,25 @@ class CarsViewModel(private val carsDao: CarsDao) : ViewModel() {
         license: String,
         displac: String
     ) {
-        val cars = Cars(
-            id = id,
-            name = name,
-            model = model,
-            age = age.toInt(),
-            type = type,
-            fuel = fuel,
-            chilom = chilom.toInt(),
-            license = license,
-            displac = displac
-        )
-        viewModelScope.launch(Dispatchers.IO) {
-            carsDao.update(cars)
+        try {
+            val cars = Cars(
+                id = id,
+                name = name,
+                model = model,
+                age = age.toInt(),
+                type = type,
+                fuel = fuel,
+                chilom = chilom.toInt(),
+                license = license,
+                displac = displac
+            )
+            viewModelScope.launch(Dispatchers.IO) {
+                carsDao.update(cars)
+            }
+        } catch (e: Exception) {
+            Log.e("Test", "error", e)
         }
+
     }
 
     fun deleteCars(cars: Cars) {

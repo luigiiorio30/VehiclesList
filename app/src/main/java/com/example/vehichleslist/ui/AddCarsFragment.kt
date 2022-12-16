@@ -78,6 +78,7 @@ class AddCarsFragment : Fragment() {
     }
 
     private fun addCars() {
+        if (isValidEntry()) {
         if (isValidEntry() || isValidLicensePlate()) {
             viewModel.addCars(
                 binding.nameInput.text.toString(),
@@ -100,7 +101,7 @@ class AddCarsFragment : Fragment() {
             findNavController().navigate(
                 R.id.action_addCarsFragment_to_CarsListFragment
             )
-        } else {
+        }} else {
             val toast = Toast.makeText(context, isInputEmpty(), duration)
             toast.show()
         }
@@ -118,34 +119,35 @@ class AddCarsFragment : Fragment() {
     }
 
     private fun updateCars() {
-        if (isValidEntry() || isValidLicensePlate()) {
-            viewModel.updateCars(
-                id = navigationArgs.id,
-                name = binding.nameInput.text.toString(),
-                model = binding.modelInput.text.toString(),
-                age = binding.ageInput.text.toString(),
-                type = binding.typeInput.text.toString(),
-                fuel = binding.fuelInput.text.toString(),
-                chilom = binding.chilometerInput.text.toString(),
-                license = binding.licenseInput.text.toString().uppercase(),
-                displac = binding.displacementInput.text.toString()
-            )
-            viewModelNotification.scheduleReminder(
-                5,
-                TimeUnit.SECONDS,
-                binding.nameInput.text.toString().uppercase(),
-                binding.chilometerInput.text.toString().toInt(),
-                binding.licenseInput.text.toString().uppercase(),
-                binding.modelInput.text.toString(),
-            )
-            findNavController().navigate(
-                R.id.action_addCarsFragment_to_CarsListFragment
-            )
-        }else {
-            val toast = Toast.makeText(context, isInputEmpty(), duration)
-            toast.show()
+        if (isValidEntry()) {
+            if (isValidEntry() || isValidLicensePlate()) {
+                viewModel.updateCars(
+                    id = navigationArgs.id,
+                    name = binding.nameInput.text.toString(),
+                    model = binding.modelInput.text.toString(),
+                    age = binding.ageInput.text.toString(),
+                    type = binding.typeInput.text.toString(),
+                    fuel = binding.fuelInput.text.toString(),
+                    chilom = binding.chilometerInput.text.toString(),
+                    license = binding.licenseInput.text.toString().uppercase(),
+                    displac = binding.displacementInput.text.toString()
+                )
+                viewModelNotification.scheduleReminder(
+                    5,
+                    TimeUnit.SECONDS,
+                    binding.nameInput.text.toString().uppercase(),
+                    binding.chilometerInput.text.toString().toInt(),
+                    binding.licenseInput.text.toString().uppercase(),
+                    binding.modelInput.text.toString(),
+                )
+                findNavController().navigate(
+                    R.id.action_addCarsFragment_to_CarsListFragment
+                )
+            }}else {
+                val toast = Toast.makeText(context, isInputEmpty(), duration)
+                toast.show()
+            }
         }
-    }
 
     private fun bindCars(cars: Cars) {
         binding.apply {
