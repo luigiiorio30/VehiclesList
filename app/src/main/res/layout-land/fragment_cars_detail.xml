@@ -40,7 +40,6 @@
             android:textAllCaps="true"
             android:textAppearance="?attr/textAppearanceHeadline6"
             android:textSize="24sp"
-            app:layout_constraintEnd_toStartOf="@+id/image"
             app:layout_constraintStart_toStartOf="@+id/divider_model"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Name" />

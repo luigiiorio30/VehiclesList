@@ -62,7 +62,7 @@
             android:layout_height="match_parent"
             android:layout_marginStart="5dp"
             android:layout_marginTop="8dp"
-            android:maxLength="9"
+            android:maxLength="25"
             android:maxLines="1"
             android:text="@{cars.model}"
             android:textAppearance="?attr/textAppearanceBody2"
@@ -84,12 +84,13 @@
             android:id="@+id/plateInfo"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginStart="8dp"
             android:maxLines="1"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
             android:text="@string/plateInf"
             android:textAppearance="?attr/textAppearanceBody2"
             app:layout_constraintBottom_toBottomOf="@+id/modelInfo"
-            app:layout_constraintStart_toEndOf="@+id/divider_license"
+            app:layout_constraintStart_toEndOf="@id/modelInfo"
             tools:text="Plate:" />
 
         <TextView
