@@ -3,7 +3,7 @@
 Use VehiclesList to keep track of the vehicles in your garage, consult periodically on how many miles each vehicle has, be alerted for insurance payment (not yet implemented, watch for future updates) and car service.
 
 This app has:
-- API for logos retrieving
+- API for logo, car fuel and car model retrieving
 - WorkManager for car service alert (insurance payment in future)
 - Tablet layout (developed on 7 inches display)
 
