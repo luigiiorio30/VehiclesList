@@ -9,6 +9,7 @@ This app has:
 
 
 ## Direct download
+You can download APK by redirecting by this box:
 [![Download pre-release](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://github.com/luigiiorio30/VeichlesList/releases)
 
 
