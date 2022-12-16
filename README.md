@@ -15,8 +15,12 @@ You can download APK by redirecting by this box:
 
 ## API Reference
 
-#### Get all vehicles logo
+#### Get all vehicles logos
 https://github.com/ErCrasher27/carl-maker-logos.json
+#### Get all types of vehicles
+https://github.com/luigiiorio30/Car-type
+#### Get all types of fuels
+https://github.com/Apocalixs-Nick/type-fuel-car.json
 
 
 ## Authors
