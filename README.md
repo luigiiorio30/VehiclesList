@@ -9,7 +9,7 @@ This app has:
 
 
 ## Direct download
-[![Download pre-release](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://github.com/luigiiorio30/VeichlesList/releases/download/pre/app-debug.apk)
+[![Download pre-release](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://github.com/luigiiorio30/VeichlesList/releases)
 
 
 ## API Reference
