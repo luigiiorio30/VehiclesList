@@ -23,6 +23,8 @@
             android:id="@+id/name_input"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:maxLength="16"
+            android:longClickable="false"
             android:inputType="textAutoComplete"
             android:maxLines="1"
             android:singleLine="true" />
@@ -42,9 +44,12 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/model_input"
             android:layout_width="match_parent"
+            android:maxLength="20"
             android:layout_height="match_parent"
+            android:longClickable="false"
             android:inputType="textAutoComplete"
-            android:maxLines="1" />
+            android:maxLines="1"
+            android:singleLine="true"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -62,8 +67,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"
+            android:longClickable="false"
             android:maxLength="4"
-            android:maxLines="1" />
+            android:maxLines="1"
+            android:singleLine="true"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -79,12 +86,13 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/type_input"
-            android:layout_width="316dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:focusable="false"
             android:longClickable="false"
-            android:layout_height="wrap_content"
             android:inputType="textMultiLine"
-            android:maxLines="1" />
+            android:maxLines="1"
+            android:singleLine="true"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -100,11 +108,12 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/fuel_input"
             android:layout_width="match_parent"
-            android:focusable="false"
-            android:longClickable="false"
             android:layout_height="wrap_content"
+            android:focusable="false"
             android:inputType="textMultiLine"
-            android:maxLines="1" />
+            android:longClickable="false"
+            android:maxLines="1"
+            android:singleLine="true"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -121,10 +130,12 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/chilometer_input"
             android:layout_width="match_parent"
-            android:maxLength="9"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:inputType="number"
-            android:maxLines="1" />
+            android:longClickable="false"
+            android:maxLength="9"
+            android:maxLines="1"
+            android:singleLine="true" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -143,9 +154,11 @@
             android:id="@+id/license_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:longClickable="false"
             android:inputType="textMultiLine"
             android:maxLength="7"
-            android:maxLines="1" />
+            android:maxLines="1"
+            android:singleLine="true"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -163,9 +176,12 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/displacement_input"
             android:layout_width="match_parent"
+            android:maxLength="4"
             android:layout_height="wrap_content"
             android:inputType="number"
-            android:maxLines="1" />
+            android:longClickable="false"
+            android:maxLines="1"
+            android:singleLine="true"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
