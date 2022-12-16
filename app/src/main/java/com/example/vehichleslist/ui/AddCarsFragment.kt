@@ -73,7 +73,6 @@ class AddCarsFragment : Fragment() {
                     bindCars(cars)
                 }
             }
-
         } else {
             binding.saveBtn.setOnClickListener {
                 addCars()

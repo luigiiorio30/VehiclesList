@@ -120,7 +120,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/chilometer"
-            android:layout_width="180dp"
+            android:layout_width="160dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:hint="@string/chilometer"
@@ -130,12 +130,12 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/chilometer_input"
                 android:layout_width="match_parent"
-                android:longClickable="false"
                 android:layout_height="match_parent"
-                android:maxLength="9"
                 android:inputType="number"
+                android:longClickable="false"
+                android:maxLength="9"
                 android:maxLines="1"
-                android:singleLine="true"/>
+                android:singleLine="true" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
