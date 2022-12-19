@@ -46,19 +46,23 @@ https://github.com/Apocalixs-Nick/type-fuel-car.json
 
 List of cars
 
-![Screenshot](https://user-images.githubusercontent.com/39243394/207951510-028f245c-7a5d-4dcf-a239-e06edee60e41.png) 
+![photo_2022-12-19_12-02-30](https://user-images.githubusercontent.com/39243394/208413796-959d080b-c6a9-427f-b9eb-e022f182bc00.jpg)
+
 
 Cars detail
 
-![Screenshot1](https://user-images.githubusercontent.com/39243394/207952032-906a03af-0eb2-4373-8888-0e71102ee75b.png)
+![photo_2022-12-19_12-02-33](https://user-images.githubusercontent.com/39243394/208413786-7d0c5581-de3e-4dd9-ae43-ed7b880c6c98.jpg)
+
 
 Add cars
 
-![Screenshot2](https://user-images.githubusercontent.com/39243394/207952262-fbc3cb0f-ab78-4c90-9b88-65c3e921a5f3.png)
+![photo_2022-12-19_12-02-36](https://user-images.githubusercontent.com/39243394/208413764-073118c4-0c82-424e-bb0f-5d5f99e3dfff.jpg)
+
 
 Notify
 
-![Screenshot3](https://user-images.githubusercontent.com/39243394/207952148-f25b68e4-eda0-49b8-9357-d665fbe81226.png)
+![photo_2022-12-19_12-02-26](https://user-images.githubusercontent.com/39243394/208413721-0ef1e864-7d74-4a10-9af2-a2338a0ff7e4.jpg)
+
 
 ## License
 
