@@ -12,6 +12,7 @@ import androidx.test.platform.app.InstrumentationRegistry
 import junit.framework.TestCase.assertEquals
 import org.hamcrest.Matchers.hasToString
 import org.hamcrest.Matchers.startsWith
+import java.util.*
 
 
 fun goToAddFragmentFromHome() {
@@ -72,6 +73,18 @@ fun clickDeleteFloatingDetail() {
 fun clickId(idInput: Int) {
     onView(withId(idInput))
         .perform(click())
+}
+
+fun clickRandom() {
+    val random = Random()
+    val id = random.nextInt(4) + 1
+    clickItem(id)
+    /*
+    val element = R.id.recycler_view
+    val random = Random()
+    val id = random.nextInt(element) + 1
+    clickItem(id)
+    */
 }
 
 fun navigateToListToAdd() {

@@ -21,8 +21,7 @@ class CarsDetailFragmentInstrumentedTest {
     @get:Rule()
     val activity = ActivityScenarioRule(MainActivity::class.java)
     val car = CarsDetail.random()
-    val random = Random()
-    val id = random.nextInt(6) + 1
+
 
 
 
@@ -158,13 +157,18 @@ class CarsDetailFragmentInstrumentedTest {
         Thread.sleep(500)
         enableCellularData(true)
         Thread.sleep(500)
+
         /*...*/
+
+        clickRandom()
         Thread.sleep(500)
         clickId(R.id.open_cars_fab)
         Thread.sleep(500)
-        clickId(R.id.delete_cars_fab)
-        Thread.sleep(3000)
-        onView(withText(R.string.delete)).perform(click())
+        clickId(R.id.edit_cars_fab)
+        Thread.sleep(500)
+        clickTextInputWriteString(R.id.age_input, car.age.toString())
+        Thread.sleep(500)
+        clickId(R.id.save_btn)
         Thread.sleep(3000)
     }
 }
