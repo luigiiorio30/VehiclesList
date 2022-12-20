@@ -48,7 +48,7 @@ class AddCarsListFragmentInstrumentedTest {
         hideKeyboard()
         Thread.sleep(500)
         clickId(R.id.save_btn)
-        Thread.sleep(3000)
+        Thread.sleep(4000)
     }
 
     /**

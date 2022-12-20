@@ -15,7 +15,6 @@ import org.mockito.Mockito
 class CarsListFragmentInstrumentedTest {
     @get:Rule()
     val activity = ActivityScenarioRule(MainActivity::class.java)
-    val mockNavController = Mockito.mock(NavController::class.java)!!
     val car = CarsDetail
 
     /**
@@ -24,7 +23,7 @@ class CarsListFragmentInstrumentedTest {
 
     //TODO: Actually working
     @Test
-    fun no_vehicles() {
+    fun no_vehicles_in_database_alert() {
         enableWifi(false)
         Thread.sleep(1000)
         enableCellularData(false)
