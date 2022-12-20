@@ -121,15 +121,15 @@ class CarsDetailFragment : Fragment() {
     }
 
 
-     fun deleteCars(cars: Cars) {
+     private fun deleteCars(cars: Cars) {
         AlertDialog.Builder(requireContext()).setTitle("Confirm Delete")
             .setMessage("Are you sure you want to delete this car?")
-            .setPositiveButton("Delete") { _, _ ->
+            .setPositiveButton(R.string.delete) { _, _ ->
                 viewModel.deleteCars(cars)
                 findNavController().navigate(
                     R.id.action_carsDetailFragment_to_carsListFragment
                 )
-            }.setNegativeButton("Cancel", null).show()
+            }.setNegativeButton(R.string.undo, null).show()
     }
 
     @SuppressLint("SetTextI18n")

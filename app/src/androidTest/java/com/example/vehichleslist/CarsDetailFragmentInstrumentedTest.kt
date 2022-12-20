@@ -40,7 +40,7 @@ class CarsDetailFragmentInstrumentedTest {
         Thread.sleep(500)
         clickId(R.id.delete_cars_fab)
         Thread.sleep(3000)
-        onView(withText("Delete")).perform(click())
+        onView(withText(R.string.delete)).perform(click())
         Thread.sleep(3000)
     }
 
@@ -60,7 +60,7 @@ class CarsDetailFragmentInstrumentedTest {
         Thread.sleep(500)
         clickId(R.id.delete_cars_fab)
         Thread.sleep(3000)
-        onView(withText("Cancel")).perform(click())
+        onView(withText(R.string.undo)).perform(click())
         Thread.sleep(3000)
     }
 }
