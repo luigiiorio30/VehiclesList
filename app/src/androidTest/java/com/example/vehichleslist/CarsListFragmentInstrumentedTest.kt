@@ -20,29 +20,16 @@ class CarsListFragmentInstrumentedTest {
     /**
      *  Function for check if description and image background are visible with no cars
      */
-
     //TODO: Actually working
     @Test
     fun no_vehicles_in_database_alert() {
-        enableWifi(false)
-        Thread.sleep(1000)
-        enableCellularData(false)
-        Thread.sleep(1000)
-        clickId(R.id.Card)
-        Thread.sleep(500)
-        clickId(R.id.open_cars_fab)
-        Thread.sleep(500)
-        clickId(R.id.delete_cars_fab)
-        Thread.sleep(3000)
-        Espresso.onView(ViewMatchers.withText(R.string.delete)).perform(ViewActions.click())
-        Thread.sleep(3000)
         checkIfVisible(R.id.description)
-        Thread.sleep(1000)
+        Thread.sleep(500)
         checkIfVisible(R.id.image)
-        Thread.sleep(1000)
+        Thread.sleep(500)
         enableWifi(true)
-        Thread.sleep(1000)
+        Thread.sleep(500)
         enableCellularData(true)
-        Thread.sleep(3000)
+        Thread.sleep(4000)
     }
 }

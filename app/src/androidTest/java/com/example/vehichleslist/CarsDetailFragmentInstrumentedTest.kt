@@ -14,41 +14,44 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mockito
+import java.util.*
 
 @RunWith(AndroidJUnit4::class)
 class CarsDetailFragmentInstrumentedTest {
     @get:Rule()
     val activity = ActivityScenarioRule(MainActivity::class.java)
-    val car = CarsDetail
+    val car = CarsDetail.random()
+    val random = Random()
+    val id = random.nextInt(6) + 1
+
 
 
     /**
      *  Function for delete a car into the database with add
      */
-
-    //TODO: Actually working
+    //TODO: Actually working- but fix multi card selection
     @Test
-    fun delete_car_ok_with_add() {
+    fun delete_car_with_add() {
         enableWifi(true)
         Thread.sleep(500)
         enableCellularData(true)
         clickId(R.id.add_cars_fab)
         Thread.sleep(500)
-        clickTextInputWriteString(R.id.name_input, car[0].name)
+        clickTextInputWriteString(R.id.name_input, car.name)
         Thread.sleep(500)
-        clickTextInputWriteString(R.id.model_input, car[0].model)
+        clickTextInputWriteString(R.id.model_input, car.model)
         Thread.sleep(500)
-        clickTextInputWriteString(R.id.age_input, car[0].age.toString())
+        clickTextInputWriteString(R.id.age_input, car.age.toString())
         Thread.sleep(500)
-        clickTextInputWriteString(R.id.license_input, car[0].license)
+        clickTextInputWriteString(R.id.license_input, car.license)
         Thread.sleep(500)
-        clickTextInputWriteString(R.id.chilometer_input, car[0].chilom.toString())
+        clickTextInputWriteString(R.id.chilometer_input, car.chilom.toString())
         Thread.sleep(3000)
-        selectTypeIntoList(R.id.type_input, car[0].type)
+        selectTypeIntoList(R.id.type_input, car.type)
         Thread.sleep(3000)
-        selectFuelIntoList(R.id.fuel_input, car[0].fuel)
+        selectFuelIntoList(R.id.fuel_input, car.fuel)
         Thread.sleep(500)
-        clickTextInputWriteString(R.id.displacement_input, car[0].displac)
+        clickTextInputWriteString(R.id.displacement_input, car.displac)
         hideKeyboard()
         Thread.sleep(500)
         clickId(R.id.save_btn)
@@ -66,29 +69,29 @@ class CarsDetailFragmentInstrumentedTest {
     /**
      *  Function for reject a car delete into the database with add
      */
-    //TODO: Actually working
+    //TODO: Actually working- but fix multi card selection
     @Test
-    fun delete_car_no_with_add() {
+    fun undo_delete_car_with_add() {
         enableWifi(true)
         Thread.sleep(500)
         enableCellularData(true)
         clickId(R.id.add_cars_fab)
         Thread.sleep(500)
-        clickTextInputWriteString(R.id.name_input, car[0].name)
+        clickTextInputWriteString(R.id.name_input, car.name)
         Thread.sleep(500)
-        clickTextInputWriteString(R.id.model_input, car[0].model)
+        clickTextInputWriteString(R.id.model_input, car.model)
         Thread.sleep(500)
-        clickTextInputWriteString(R.id.age_input, car[0].age.toString())
+        clickTextInputWriteString(R.id.age_input, car.age.toString())
         Thread.sleep(500)
-        clickTextInputWriteString(R.id.license_input, car[0].license)
+        clickTextInputWriteString(R.id.license_input, car.license)
         Thread.sleep(500)
-        clickTextInputWriteString(R.id.chilometer_input, car[0].chilom.toString())
+        clickTextInputWriteString(R.id.chilometer_input, car.chilom.toString())
         Thread.sleep(3000)
-        selectTypeIntoList(R.id.type_input, car[0].type)
+        selectTypeIntoList(R.id.type_input, car.type)
         Thread.sleep(3000)
-        selectFuelIntoList(R.id.fuel_input, car[0].fuel)
+        selectFuelIntoList(R.id.fuel_input, car.fuel)
         Thread.sleep(500)
-        clickTextInputWriteString(R.id.displacement_input, car[0].displac)
+        clickTextInputWriteString(R.id.displacement_input, car.displac)
         hideKeyboard()
         Thread.sleep(500)
         clickId(R.id.save_btn)
@@ -108,9 +111,9 @@ class CarsDetailFragmentInstrumentedTest {
     /**
      *  Function for reject a car delete into the database with add
      */
-    //TODO: Actually working
+    //TODO: Actually working- but fix multi card selection
     @Test
-    fun delete_car_no_without_add() {
+    fun undo_delete_car_without_add() {
         enableWifi(true)
         Thread.sleep(500)
         enableCellularData(true)
@@ -128,15 +131,34 @@ class CarsDetailFragmentInstrumentedTest {
     /**
      *  Function for delete a car into the database with add
      */
-
-    //TODO: Actually working
+    //TODO: Actually working - but fix multi card selection
     @Test
-    fun delete_car_ok_without_add() {
+    fun delete_car_without_add() {
         enableWifi(true)
         Thread.sleep(500)
         enableCellularData(true)
         Thread.sleep(500)
         clickId(R.id.Card)
+        Thread.sleep(500)
+        clickId(R.id.open_cars_fab)
+        Thread.sleep(500)
+        clickId(R.id.delete_cars_fab)
+        Thread.sleep(3000)
+        onView(withText(R.string.delete)).perform(click())
+        Thread.sleep(3000)
+    }
+
+    /**
+     *  Function for delete a car into the database with add
+     */
+    //TODO: Work in progress
+    @Test
+    fun modify_car() {
+        enableWifi(true)
+        Thread.sleep(500)
+        enableCellularData(true)
+        Thread.sleep(500)
+        /*...*/
         Thread.sleep(500)
         clickId(R.id.open_cars_fab)
         Thread.sleep(500)

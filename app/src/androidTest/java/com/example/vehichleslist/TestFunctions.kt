@@ -145,14 +145,14 @@ fun clickTextInputListFuel(idInput: Int, textToSearch: String) {
 fun selectFuelIntoList (idInput: Int, fuel: String){
     clickId(idInput)
     onView(withText(fuel)).perform(click())
-    onView(withText("OK")).perform(click())
+    onView(withText(R.string.Ok)).perform(click())
 
 }
 
 fun selectTypeIntoList (idInput: Int, type: String){
     clickId(idInput)
     onView(withText(type)).perform(click())
-    onView(withText("OK")).perform(click())
+    onView(withText(R.string.Ok)).perform(click())
 
 }
 

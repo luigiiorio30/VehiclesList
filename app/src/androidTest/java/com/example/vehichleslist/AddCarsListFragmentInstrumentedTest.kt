@@ -14,13 +14,12 @@ class AddCarsListFragmentInstrumentedTest {
     @get:Rule()
     val activity = ActivityScenarioRule(MainActivity::class.java)
     val mockNavController = Mockito.mock(NavController::class.java)!!
-    val car = CarsDetail
+    val car = CarsDetail.random()
 
 
     /**
      * Function for adding a car by taking the information from the CarsTest list with internet
      */
-
     //TODO: Actually working
     @Test
     fun add_new_car_with_internet() {
@@ -30,21 +29,21 @@ class AddCarsListFragmentInstrumentedTest {
         Thread.sleep(500)
         clickId(R.id.add_cars_fab)
         Thread.sleep(500)
-        clickTextInputWriteString(R.id.name_input, car[0].name)
+        clickTextInputWriteString(R.id.name_input, car.name)
         Thread.sleep(500)
-        clickTextInputWriteString(R.id.model_input, car[0].model)
+        clickTextInputWriteString(R.id.model_input, car.model)
         Thread.sleep(500)
-        clickTextInputWriteString(R.id.age_input, car[0].age.toString())
+        clickTextInputWriteString(R.id.age_input, car.age.toString())
         Thread.sleep(500)
-        clickTextInputWriteString(R.id.license_input, car[0].license)
+        clickTextInputWriteString(R.id.license_input, car.license)
         Thread.sleep(500)
-        clickTextInputWriteString(R.id.chilometer_input, car[0].chilom.toString())
+        clickTextInputWriteString(R.id.chilometer_input, car.chilom.toString())
         Thread.sleep(3000)
-        selectTypeIntoList(R.id.type_input, car[0].type)
+        selectTypeIntoList(R.id.type_input, car.type)
         Thread.sleep(3000)
-        selectFuelIntoList(R.id.fuel_input, car[0].fuel)
+        selectFuelIntoList(R.id.fuel_input, car.fuel)
         Thread.sleep(500)
-        clickTextInputWriteString(R.id.displacement_input, car[0].displac)
+        clickTextInputWriteString(R.id.displacement_input, car.displac)
         hideKeyboard()
         Thread.sleep(500)
         clickId(R.id.save_btn)
@@ -54,7 +53,6 @@ class AddCarsListFragmentInstrumentedTest {
     /**
      * Function for adding a car by taking the information from the CarsTest list without internet
      */
-
     //TODO: Actually working
     fun add_new_car_with_no_internet() {
         enableWifi(false)
@@ -63,15 +61,15 @@ class AddCarsListFragmentInstrumentedTest {
         Thread.sleep(500)
         clickId(R.id.add_cars_fab)
         Thread.sleep(500)
-        clickTextInputWriteString(R.id.name_input, car[0].name)
+        clickTextInputWriteString(R.id.name_input, car.name)
         Thread.sleep(500)
-        clickTextInputWriteString(R.id.model_input, car[0].model)
+        clickTextInputWriteString(R.id.model_input, car.model)
         Thread.sleep(500)
-        clickTextInputWriteString(R.id.age_input, car[0].age.toString())
+        clickTextInputWriteString(R.id.age_input, car.age.toString())
         Thread.sleep(500)
-        clickTextInputWriteString(R.id.license_input, car[0].license)
+        clickTextInputWriteString(R.id.license_input, car.license)
         Thread.sleep(500)
-        clickTextInputWriteString(R.id.chilometer_input, car[0].chilom.toString())
+        clickTextInputWriteString(R.id.chilometer_input, car.chilom.toString())
         hideKeyboard()
         Thread.sleep(500)
         clickId(R.id.save_btn)

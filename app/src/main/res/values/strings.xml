@@ -7,6 +7,7 @@
     <string name="save">Save</string>
     <string name="delete">Delete</string>
     <string name="undo">undo</string>
+    <string name="Ok">OK</string>
     <string name="add">Add</string>
     <string name="setMenu">Settings</string>
     <string name="fuel">Fuel type </string>
@@ -27,7 +28,6 @@
     <string name="plate_error">"Insert a valid value for "License plate""</string>
     <string name="plate_warning">"Insert a valid value for "License plate" in format AB123CD"</string>
     <string name="vehicles_warning">There\'s no vehicles here :(</string>
-
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
