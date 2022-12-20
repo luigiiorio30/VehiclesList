@@ -29,7 +29,7 @@ class CarsDetailFragmentInstrumentedTest {
 
     //TODO: Actually working
     @Test
-    fun delete_car() {
+    fun delete_car_ok() {
         enableWifi(true)
         Thread.sleep(500)
         enableCellularData(true)
@@ -44,4 +44,23 @@ class CarsDetailFragmentInstrumentedTest {
         Thread.sleep(3000)
     }
 
+    /**
+     *  Function for reject a car delete into the database
+     */
+    //TODO: Actually working
+    @Test
+    fun delete_car_no() {
+        enableWifi(true)
+        Thread.sleep(500)
+        enableCellularData(true)
+        Thread.sleep(500)
+        clickId(R.id.Card)
+        Thread.sleep(500)
+        clickId(R.id.open_cars_fab)
+        Thread.sleep(500)
+        clickId(R.id.delete_cars_fab)
+        Thread.sleep(3000)
+        onView(withText("Cancel")).perform(click())
+        Thread.sleep(3000)
+    }
 }

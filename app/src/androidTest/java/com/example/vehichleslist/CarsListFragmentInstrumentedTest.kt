@@ -14,14 +14,14 @@ class CarsListFragmentInstrumentedTest {
     val activity = ActivityScenarioRule(MainActivity::class.java)
     val mockNavController = Mockito.mock(NavController::class.java)!!
     val car = CarsDetail
-    
+
     /**
-     *  Function for check if description and image background are visible with no internet
+     *  Function for check if description and image background are visible with no cars
      */
 
     //TODO: Actually working
     @Test
-    fun no_internet_with_no_cars() {
+    fun no_vehicles() {
         enableWifi(false)
         Thread.sleep(1000)
         enableCellularData(false)

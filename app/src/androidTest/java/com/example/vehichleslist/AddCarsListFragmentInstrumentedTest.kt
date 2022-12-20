@@ -39,13 +39,11 @@ class AddCarsListFragmentInstrumentedTest {
         clickTextInputWriteString(R.id.license_input, car[0].license)
         Thread.sleep(500)
         clickTextInputWriteString(R.id.chilometer_input, car[0].chilom.toString())
+        Thread.sleep(3000)
+        selectTypeIntoList(R.id.type_input, car[0].type)
+        Thread.sleep(3000)
+        selectFuelIntoList(R.id.fuel_input, car[0].fuel)
         Thread.sleep(500)
-        /*
-        clickTextInputWriteString(R.id.type_input, car[0].type)
-        Thread.sleep(500)
-        clickTextInputWriteString(R.id.fuel_input, car[0].fuel)
-        Thread.sleep(500)
-         */
         clickTextInputWriteString(R.id.displacement_input, car[0].displac)
         hideKeyboard()
         Thread.sleep(500)

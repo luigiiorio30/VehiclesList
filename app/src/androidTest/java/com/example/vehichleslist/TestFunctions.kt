@@ -142,6 +142,20 @@ fun clickTextInputListFuel(idInput: Int, textToSearch: String) {
         .perform(click())
 }
 
+fun selectFuelIntoList (idInput: Int, fuel: String){
+    clickId(idInput)
+    onView(withText(fuel)).perform(click())
+    onView(withText("OK")).perform(click())
+
+}
+
+fun selectTypeIntoList (idInput: Int, type: String){
+    clickId(idInput)
+    onView(withText(type)).perform(click())
+    onView(withText("OK")).perform(click())
+
+}
+
 fun enableWifi(enable: Boolean) {
     when (enable) {
         true -> InstrumentationRegistry.getInstrumentation().uiAutomation.executeShellCommand("svc wifi enable")
