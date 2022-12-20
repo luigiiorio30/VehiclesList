@@ -121,7 +121,7 @@ class CarsDetailFragment : Fragment() {
     }
 
 
-    private fun deleteCars(cars: Cars) {
+     fun deleteCars(cars: Cars) {
         AlertDialog.Builder(requireContext()).setTitle("Confirm Delete")
             .setMessage("Are you sure you want to delete this car?")
             .setPositiveButton("Delete") { _, _ ->
