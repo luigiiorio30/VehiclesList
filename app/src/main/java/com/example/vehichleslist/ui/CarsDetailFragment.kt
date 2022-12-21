@@ -62,7 +62,7 @@ class CarsDetailFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         _binding = FragmentCarsDetailBinding.inflate(inflater, container, false)
         return binding.root
@@ -85,7 +85,6 @@ class CarsDetailFragment : Fragment() {
         binding.deleteCarsFab.setOnClickListener {
             deleteCars(cars)
         }
-
     }
 
     private fun addOnButtonClicked() {
@@ -122,15 +121,15 @@ class CarsDetailFragment : Fragment() {
 
 
      private fun deleteCars(cars: Cars) {
-        AlertDialog.Builder(requireContext()).setTitle("Confirm Delete")
-            .setMessage("Are you sure you want to delete this car?")
-            .setPositiveButton(R.string.delete) { _, _ ->
-                viewModel.deleteCars(cars)
-                findNavController().navigate(
-                    R.id.action_carsDetailFragment_to_carsListFragment
-                )
-            }.setNegativeButton(R.string.undo, null).show()
-    }
+         AlertDialog.Builder(requireContext()).setTitle(R.string.confirm_delete)
+             .setMessage(R.string.delete_text)
+             .setPositiveButton(R.string.delete) { _, _ ->
+                 viewModel.deleteCars(cars)
+                 findNavController().navigate(
+                     R.id.action_carsDetailFragment_to_carsListFragment
+                 )
+             }.setNegativeButton(R.string.undo, null).show()
+     }
 
     @SuppressLint("SetTextI18n")
     private fun bindCars() {
