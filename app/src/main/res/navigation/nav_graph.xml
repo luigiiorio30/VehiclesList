@@ -9,7 +9,7 @@
     <fragment
         android:id="@+id/carsListFragment"
         android:name="com.example.vehichleslist.ui.CarsListFragment"
-        android:label="Veichles" >
+        android:label="VehiclesList" >
         <action
             android:id="@+id/action_CarsListFragment_to_carsDetailFragment"
             app:destination="@id/carsDetailFragment" />
@@ -21,7 +21,7 @@
     <fragment
         android:id="@+id/addCarsFragment"
         android:name="com.example.vehichleslist.ui.AddCarsFragment"
-        android:label="Vehicles"
+        android:label="Add new car"
         tools:layout="@layout/fragment_add_car" >
         <argument
             android:name="id"
@@ -34,7 +34,7 @@
     <fragment
         android:id="@+id/carsDetailFragment"
         android:name="com.example.vehichleslist.ui.CarsDetailFragment"
-        android:label="Cars"
+        android:label="Vehicle detail"
         tools:layout="@layout/fragment_cars_detail">
         <action
             android:id="@+id/action_carsDetailFragment_to_addCarsFragment"
