@@ -185,10 +185,11 @@ class CarsViewModel(private val carsDao: CarsDao) : ViewModel() {
         }
     }
 
-    fun isValidEntry(name: String, model: String, age: String, chilom: String, licensePlate: String): Boolean {
-        if ((name.isBlank() || model.isBlank() || age.isBlank() || chilom.isBlank() || licensePlate.isBlank())) {
+    fun isValidEntry(name: String, model: String, chilom: String, licensePlate: String): Boolean {
+        if ((name.isBlank() || model.isBlank() || chilom.isBlank() || licensePlate.isBlank())) {
             return false
         }
+
         return isValidLicensePlate(licensePlate)
     }
 

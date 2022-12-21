@@ -110,22 +110,34 @@ class AddCarsFragment : Fragment() {
             findNavController().navigate(
                 R.id.action_addCarsFragment_to_CarsListFragment
             )
-        }} else {
+        }
+        } else {
             val toast = Toast.makeText(context, isInputEmpty(), duration)
             toast.show()
         }
     }
 
-   private fun isInputEmpty(): Int{
-        return when (error.isBlank()){
+    private fun isInputEmpty(): Int {
+        if (binding.ageInput.text.toString().isBlank() || binding.ageInput.text.toString()
+                .toInt() < 1800 || binding.ageInput.text.toString().toInt() > 2099
+        ) {
+            return R.string.age_error
+        }
+        if (binding.displacementInput.text.toString()
+                .isBlank() || binding.displacementInput.text.toString()
+                .toInt() <= 0 || binding.displacementInput.text.toString().toInt() >= 8000
+        ) {
+            return R.string.displacement_error
+        }
+        return when (error.isBlank()) {
             binding.nameInput.text.toString().isBlank() -> R.string.name_error
             binding.modelInput.text.toString().isBlank() -> R.string.model_error
-            binding.ageInput.text.toString().isBlank() -> R.string.age_error
             binding.chilometerInput.text.toString().isBlank() -> R.string.chilometer_error
             !binding.licenseInput.text.toString().matches(regex) -> R.string.plate_warning
             else -> R.string.toast_error
         }
     }
+
 
     private fun updateCars() {
         if (isValidEntry()) {
@@ -184,8 +196,7 @@ class AddCarsFragment : Fragment() {
         binding.nameInput.text.toString(),
         binding.modelInput.text.toString(),
         binding.ageInput.text.toString(),
-        binding.chilometerInput.text.toString(),
-        binding.licenseInput.text.toString()
+        binding.chilometerInput.text.toString()
     )
 
     private fun isValidLicensePlate() = viewModel.isValidLicensePlate(
