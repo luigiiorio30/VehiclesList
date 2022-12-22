@@ -13,14 +13,14 @@
     <string name="fuel">Fuel type </string>
     <string name="chilometer">Total chilometer* </string>
     <string name="license_plate">Plate* </string>
-    <string name="displacement">Displacement </string>
+    <string name="displacement">Displacement* </string>
     <string name="unit_cil">cm^3</string>
     <string name="unit_km">km</string>
     <string name="modelInf">Model:</string>
     <string name="plateInf">Plate:</string>
     <string name="channel_name">car_channel</string>
     <string name="channel_description">car_reminder</string>
-    <string name="toast_error">Generic error!</string>
+    <string name="age_displac_check">Check age and displacement</string>
     <string name="name_error">Insert a valid value for "Brand""</string>
     <string name="model_error">"Insert a valid value for "Model""</string>
     <string name="age_error">"Insert a valid value for "Age of production""</string>
@@ -33,6 +33,7 @@
     <string name="delete_text">Are you sure you want to delete this car?</string>
     <string name="confirm_text">Are you sure you want to add this car?</string>
     <string name="displacement_error">"Insert a valid value for "Displacement""</string>
+    <string name="optional">"Optional Info"</string>
 
 
     <string name="hello_blank_fragment">Hello blank fragment</string>

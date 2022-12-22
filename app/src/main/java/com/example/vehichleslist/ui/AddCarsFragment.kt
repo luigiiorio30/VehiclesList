@@ -88,53 +88,44 @@ class AddCarsFragment : Fragment() {
 
     private fun addCars() {
         if (isValidEntry()) {
-        if (isValidEntry() || isValidLicensePlate()) {
-            viewModel.addCars(
-                binding.nameInput.text.toString(),
-                binding.modelInput.text.toString(),
-                binding.ageInput.text.toString(),
-                binding.typeInput.text.toString(),
-                binding.fuelInput.text.toString(),
-                binding.chilometerInput.text.toString(),
-                binding.licenseInput.text.toString().uppercase(),
-                binding.displacementInput.text.toString()
-            )
-            viewModelNotification.scheduleReminder(
-                5,
-                TimeUnit.SECONDS,
-                binding.nameInput.text.toString().uppercase(),
-                binding.chilometerInput.text.toString().toInt(),
-                binding.licenseInput.text.toString().uppercase(),
-                binding.modelInput.text.toString(),
-            )
-            findNavController().navigate(
-                R.id.action_addCarsFragment_to_CarsListFragment
-            )
-        }
-        } else {
+            if (isValidEntry() || isValidLicensePlate() ) {
+                viewModel.addCars(
+                    binding.nameInput.text.toString(),
+                    binding.modelInput.text.toString(),
+                    binding.ageInput.text.toString(),
+                    binding.typeInput.text.toString(),
+                    binding.fuelInput.text.toString(),
+                    binding.chilometerInput.text.toString(),
+                    binding.licenseInput.text.toString().uppercase(),
+                    binding.displacementInput.text.toString()
+                )
+                viewModelNotification.scheduleReminder(
+                    5,
+                    TimeUnit.SECONDS,
+                    binding.nameInput.text.toString().uppercase(),
+                    binding.chilometerInput.text.toString().toInt(),
+                    binding.licenseInput.text.toString().uppercase(),
+                    binding.modelInput.text.toString(),
+                )
+                findNavController().navigate(
+                    R.id.action_addCarsFragment_to_CarsListFragment
+                )
+            }} else {
             val toast = Toast.makeText(context, isInputEmpty(), duration)
             toast.show()
         }
     }
 
     private fun isInputEmpty(): Int {
-        if (binding.ageInput.text.toString().isBlank() || binding.ageInput.text.toString()
-                .toInt() < 1800 || binding.ageInput.text.toString().toInt() > 2099
-        ) {
-            return R.string.age_error
-        }
-        if (binding.displacementInput.text.toString()
-                .isBlank() || binding.displacementInput.text.toString()
-                .toInt() <= 0 || binding.displacementInput.text.toString().toInt() >= 8000
-        ) {
-            return R.string.displacement_error
-        }
-        return when (error.isBlank()) {
+        return when (error.isBlank()){
             binding.nameInput.text.toString().isBlank() -> R.string.name_error
             binding.modelInput.text.toString().isBlank() -> R.string.model_error
-            binding.chilometerInput.text.toString().isBlank() -> R.string.chilometer_error
+            binding.ageInput.text.toString().isBlank() -> R.string.age_error
             !binding.licenseInput.text.toString().matches(regex) -> R.string.plate_warning
-            else -> R.string.toast_error
+            binding.chilometerInput.text.toString().isBlank() -> R.string.chilometer_error
+            binding.displacementInput.text.toString().isBlank() -> R.string.displacement_error
+
+            else -> R.string.age_displac_check
         }
     }
 
@@ -165,10 +156,10 @@ class AddCarsFragment : Fragment() {
                     R.id.action_addCarsFragment_to_CarsListFragment
                 )
             }}else {
-                val toast = Toast.makeText(context, isInputEmpty(), duration)
-                toast.show()
-            }
+            val toast = Toast.makeText(context, isInputEmpty(), duration)
+            toast.show()
         }
+    }
 
     private fun bindCars(cars: Cars) {
         binding.apply {
@@ -196,7 +187,9 @@ class AddCarsFragment : Fragment() {
         binding.nameInput.text.toString(),
         binding.modelInput.text.toString(),
         binding.ageInput.text.toString(),
-        binding.chilometerInput.text.toString()
+        binding.chilometerInput.text.toString(),
+        binding.licenseInput.text.toString(),
+        binding.displacementInput.text.toString()
     )
 
     private fun isValidLicensePlate() = viewModel.isValidLicensePlate(
@@ -260,4 +253,3 @@ class AddCarsFragment : Fragment() {
         _binding = null
     }
 }
-

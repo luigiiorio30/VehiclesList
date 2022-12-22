@@ -76,6 +76,7 @@ class CarsDetailFragment : Fragment() {
         viewModel.getCars(id).observe(viewLifecycleOwner) {
             cars = it
             bindCars()
+            setVisibilityInfo()
         }
 
         binding.openCarsFab.setOnClickListener {
@@ -120,16 +121,43 @@ class CarsDetailFragment : Fragment() {
     }
 
 
-     private fun deleteCars(cars: Cars) {
-         AlertDialog.Builder(requireContext()).setTitle(R.string.confirm_delete)
-             .setMessage(R.string.delete_text)
-             .setPositiveButton(R.string.delete) { _, _ ->
-                 viewModel.deleteCars(cars)
-                 findNavController().navigate(
-                     R.id.action_carsDetailFragment_to_carsListFragment
-                 )
-             }.setNegativeButton(R.string.undo, null).show()
-     }
+    private fun setVisibilityInfo() {
+        if (cars.fuel.isEmpty()) {
+            binding.fuel.visibility = View.INVISIBLE
+            binding.icFuel.visibility = View.INVISIBLE
+
+        } else {
+            binding.fuel.visibility = View.VISIBLE
+            binding.icFuel.visibility = View.VISIBLE
+
+        }
+        if (cars.type.isEmpty()) {
+            binding.type.visibility = View.INVISIBLE
+            binding.icType.visibility = View.INVISIBLE
+
+        } else {
+            binding.type.visibility = View.VISIBLE
+            binding.icType.visibility = View.VISIBLE
+        }
+
+        if (cars.fuel.isEmpty() && cars.type.isEmpty()) {
+            binding.optional?.visibility = View.INVISIBLE
+        } else {
+            binding.optional?.visibility  = View.VISIBLE
+        }
+    }
+
+
+    private fun deleteCars(cars: Cars) {
+        AlertDialog.Builder(requireContext()).setTitle(R.string.confirm_delete)
+            .setMessage(R.string.delete_text)
+            .setPositiveButton(R.string.delete) { _, _ ->
+                viewModel.deleteCars(cars)
+                findNavController().navigate(
+                    R.id.action_carsDetailFragment_to_carsListFragment
+                )
+            }.setNegativeButton(R.string.undo, null).show()
+    }
 
     @SuppressLint("SetTextI18n")
     private fun bindCars() {
@@ -138,7 +166,7 @@ class CarsDetailFragment : Fragment() {
             name.text = cars.name
             age.text = "Age of production: " + cars.age
             type.text = "Type: " + cars.type
-            fuel.text = "Type of fuel: " + cars.fuel
+            fuel.text = "Fuel type: " + cars.fuel
             chilometer.text = "Total chilometer: " + cars.chilom + " km"
             licensePlate.text = "License plate: " + cars.license
             displacement.text = "Displacement: " + cars.displac + " cc"
