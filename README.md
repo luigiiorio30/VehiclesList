@@ -38,7 +38,6 @@ https://github.com/Apocalixs-Nick/type-fuel-car.json
 
 
 ## App logo
-<p align="center">
 ![Logo](https://user-images.githubusercontent.com/39243394/207952527-6a33662f-5a2f-44c2-a2b6-bea943c8c73f.png)
 
 
