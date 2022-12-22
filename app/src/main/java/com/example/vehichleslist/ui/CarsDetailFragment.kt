@@ -88,6 +88,11 @@ class CarsDetailFragment : Fragment() {
         }
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        clicked = false
+    }
+
     private fun addOnButtonClicked() {
         setVisibility(clicked)
         setAnimation(clicked)

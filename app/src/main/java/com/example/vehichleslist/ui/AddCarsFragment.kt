@@ -124,7 +124,8 @@ class AddCarsFragment : Fragment() {
             !binding.licenseInput.text.toString().matches(regex) -> R.string.plate_warning
             binding.chilometerInput.text.toString().isBlank() -> R.string.chilometer_error
             binding.displacementInput.text.toString().isBlank() -> R.string.displacement_error
-
+            (binding.displacementInput.text.toString().toInt() <= 50 || binding.displacementInput.text.toString().toInt() >= 8000) -> R.string.displacement_error
+            (binding.ageInput.text.toString().toInt() <= 1800 || binding.ageInput.text.toString().toInt() >= 2100) -> R.string.age_error
             else -> R.string.age_displac_check
         }
     }
