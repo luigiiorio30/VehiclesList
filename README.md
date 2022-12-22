@@ -38,30 +38,30 @@ https://github.com/Apocalixs-Nick/type-fuel-car.json
 
 
 ## App logo
-
+<p align="center">
 ![Logo](https://user-images.githubusercontent.com/39243394/207952527-6a33662f-5a2f-44c2-a2b6-bea943c8c73f.png)
 
 
 ## Screenshot 
 
-List of cars
-
-![photo_2022-12-19_12-02-30](https://user-images.githubusercontent.com/39243394/208413796-959d080b-c6a9-427f-b9eb-e022f182bc00.jpg)
-
-
-Cars detail
-
-![photo_2022-12-19_12-02-33](https://user-images.githubusercontent.com/39243394/208413786-7d0c5581-de3e-4dd9-ae43-ed7b880c6c98.jpg)
+#### List of cars
+<p align="center">
+<img width="350" height="600" src="https://user-images.githubusercontent.com/39243394/209165355-79ed7ef5-7515-4f15-b4c0-fc59fec0959d.jpg">
 
 
-Add cars
+#### Cars detail
+<p align="center">
+<img width="350" height="600" src="https://user-images.githubusercontent.com/39243394/209165439-f4d8252a-b3e7-49e4-b90f-b3a379d84842.jpg">
 
-![photo_2022-12-19_12-02-36](https://user-images.githubusercontent.com/39243394/208413764-073118c4-0c82-424e-bb0f-5d5f99e3dfff.jpg)
+
+#### Add cars
+<p align="center">
+<img width="350" height="600" src="https://user-images.githubusercontent.com/39243394/209165523-44653e30-0de1-4a5a-a730-781fee3ef18d.jpg">
 
 
-Notify
-
-![photo_2022-12-19_12-02-26](https://user-images.githubusercontent.com/39243394/208413721-0ef1e864-7d74-4a10-9af2-a2338a0ff7e4.jpg)
+#### Notify
+<p align="center">
+<img width="350" height="600" src="https://user-images.githubusercontent.com/39243394/209165585-8dc385fe-af87-4331-9458-487c58be406e.jpg">
 
 
 ## License
