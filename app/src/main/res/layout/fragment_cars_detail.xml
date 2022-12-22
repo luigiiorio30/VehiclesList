@@ -11,6 +11,21 @@
         android:layout_height="match_parent">
 
         <TextView
+            android:id="@+id/optional"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/optional"
+            android:textAllCaps="true"
+            android:textAppearance="?attr/textAppearanceHeadline6"
+            android:textSize="20sp"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider_type"
+            tools:text="Optional info" />
+
+        <TextView
             android:id="@+id/model2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -72,37 +87,56 @@
             app:layout_constraintTop_toTopOf="@+id/ic_calendar"
             tools:text="Age" />
 
-        <View
-            android:id="@+id/divider_age"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_margin="16dp"
-            android:background="?attr/dividerHorizontal"
+        <TextView
+            android:id="@+id/type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:maxLines="1"
+            android:singleLine="false"
+            android:textAppearance="?attr/textAppearanceBody2"
+            android:textSize="16sp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/ic_type"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/ic_type"
+            tools:text="Type" />
+
+        <TextView
+            android:id="@+id/fuel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:maxLines="1"
+            android:textAppearance="?attr/textAppearanceBody2"
+            android:textSize="16sp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/ic_fuel"
+            app:layout_constraintStart_toEndOf="@+id/ic_fuel"
+            app:layout_constraintTop_toTopOf="@+id/ic_fuel"
+            tools:text="Fuel type" />
+
+        <ImageView
+            android:id="@+id/ic_fuel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/ic_fuel"
+            android:visibility="visible"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ic_calendar" />
+            app:layout_constraintTop_toBottomOf="@+id/optional" />
 
         <ImageView
             android:id="@+id/ic_type"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="4dp"
             android:src="@drawable/ic_type"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/divider_age" />
-
-        <TextView
-            android:id="@+id/type"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:maxLines="1"
-            android:singleLine="false"
-            android:textAppearance="?attr/textAppearanceBody2"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="@id/ic_type"
-            app:layout_constraintStart_toEndOf="@id/ic_type"
-            app:layout_constraintTop_toTopOf="@+id/ic_type"
-            tools:text="Type" />
+            android:visibility="visible"
+            app:layout_constraintEnd_toStartOf="@+id/type"
+            app:layout_constraintTop_toBottomOf="@+id/optional" />
 
         <View
             android:id="@+id/divider_type"
@@ -110,30 +144,9 @@
             android:layout_height="1dp"
             android:layout_margin="16dp"
             android:background="?attr/dividerHorizontal"
+            android:visibility="visible"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ic_type" />
-
-        <ImageView
-            android:id="@+id/ic_fuel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:src="@drawable/ic_fuel"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/divider_type" />
-
-        <TextView
-            android:id="@+id/fuel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:maxLines="1"
-            android:textAppearance="?attr/textAppearanceBody2"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="@id/ic_fuel"
-            app:layout_constraintStart_toEndOf="@id/ic_fuel"
-            app:layout_constraintTop_toTopOf="@+id/ic_fuel"
-            tools:text="Fuel type" />
+            app:layout_constraintTop_toBottomOf="@+id/ic_displacement" />
 
         <View
             android:id="@+id/divider_fuel"
@@ -142,7 +155,7 @@
             android:layout_margin="16dp"
             android:background="?attr/dividerHorizontal"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ic_fuel" />
+            app:layout_constraintTop_toBottomOf="@+id/ic_calendar" />
 
         <ImageView
             android:id="@+id/ic_chilom"
