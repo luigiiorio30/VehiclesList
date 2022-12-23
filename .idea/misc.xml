@@ -12,6 +12,10 @@
         <entry key="..\:/Users/iorio/Desktop/VehichlesList/app/src/main/res/layout/nav_host_fragment_content_main.xml" value="0.1875" />
         <entry key="..\:/Users/iorio/Desktop/VehichlesList/app/src/main/res/menu/menu_main.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/iorio/Desktop/VehichlesList/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.159" />
+        <entry key="..\:/Users/iorio/VehiclesList/app/src/main/res/layout-land/fragment_cars_detail.xml" value="0.5" />
+        <entry key="..\:/Users/iorio/VehiclesList/app/src/main/res/layout-land/list_item_car.xml" value="0.31040564373897706" />
+        <entry key="..\:/Users/iorio/VehiclesList/app/src/main/res/layout-sw600dp/fragment_car_list.xml" value="0.275" />
+        <entry key="..\:/Users/iorio/VehiclesList/app/src/main/res/layout-sw600dp/fragment_cars_detail.xml" value="0.275" />
         <entry key="..\:/Users/iorio/VehiclesList/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/iorio/VehiclesList/app/src/main/res/layout/content_main.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/iorio/VehiclesList/app/src/main/res/layout/fragment_add_car.xml" value="0.2" />
