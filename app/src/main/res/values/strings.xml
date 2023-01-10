@@ -34,6 +34,7 @@
     <string name="confirm_text">Are you sure you want to add this car?</string>
     <string name="displacement_error">"Insert a valid value for "Displacement""</string>
     <string name="optional">"Optional info"</string>
+    <string name="no_internet">"Check your internet connection and retry again :c"</string>
 
 
     <string name="hello_blank_fragment">Hello blank fragment</string>

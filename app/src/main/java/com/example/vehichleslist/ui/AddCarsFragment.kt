@@ -1,13 +1,18 @@
 package com.example.vehichleslist.ui
 
 import android.app.AlertDialog
+import android.content.Context
 import android.content.DialogInterface
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
@@ -60,6 +65,7 @@ class AddCarsFragment : Fragment() {
 
     }
 
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.fuelAcquisition()
@@ -116,6 +122,7 @@ class AddCarsFragment : Fragment() {
         }
     }
 
+
     private fun isInputEmpty(): Int {
         return when (error.isBlank()){
             binding.nameInput.text.toString().isBlank() -> R.string.name_error
@@ -162,6 +169,7 @@ class AddCarsFragment : Fragment() {
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.M)
     private fun bindCars(cars: Cars) {
         binding.apply {
             nameInput.setText(cars.name, TextView.BufferType.SPANNABLE)
@@ -197,58 +205,87 @@ class AddCarsFragment : Fragment() {
         binding.licenseInput.text.toString()
     )
 
+    @RequiresApi(Build.VERSION_CODES.M)
     private fun setFuelCar() {
-        val listFuelCar = viewModel.getFuel()
-        val itemsFuel = arrayOfNulls<CharSequence>(listFuelCar.size)
-        for (i in listFuelCar.indices) {
-            itemsFuel[i] = listFuelCar[i]
+        if (isInternetConnected()) {
+            val listFuelCar = viewModel.getFuel()
+            val itemsFuel = arrayOfNulls<CharSequence>(listFuelCar.size)
+            for (i in listFuelCar.indices) {
+                itemsFuel[i] = listFuelCar[i]
+            }
+            val builderFuel: AlertDialog.Builder = AlertDialog.Builder(context)
+            builderFuel.setTitle(R.string.fuel)
+            builderFuel.setSingleChoiceItems(
+                itemsFuel,
+                viewModel.checkedItemFuel
+            ) { _: DialogInterface, which ->
+                viewModel.checkedItemFuel = which
+            }
+            builderFuel.setItems(itemsFuel) { _: DialogInterface, which ->
+                viewModel.checkedItemFuel = which
+            }
+            builderFuel.setPositiveButton("Ok") { _: DialogInterface, _ ->
+                binding.fuelInput.setText(itemsFuel[viewModel.checkedItemFuel].toString())
+            }
+            builderFuel.setNegativeButton("Cancel") { _: DialogInterface, _ ->
+                binding.fuelInput.setText("")
+            }
+            builderFuel.show()
+        } else {
+            Toast.makeText(context, "No Internet", Toast.LENGTH_SHORT).show()
         }
-        val builderFuel: AlertDialog.Builder = AlertDialog.Builder(context)
-        builderFuel.setTitle(R.string.fuel)
-        builderFuel.setSingleChoiceItems(
-            itemsFuel,
-            viewModel.checkedItemFuel
-        ) { _: DialogInterface, which ->
-            viewModel.checkedItemFuel = which
-        }
-        builderFuel.setItems(itemsFuel) { _: DialogInterface, which ->
-            viewModel.checkedItemFuel = which
-        }
-        builderFuel.setPositiveButton("Ok") { _: DialogInterface, _ ->
-            binding.fuelInput.setText(itemsFuel[viewModel.checkedItemFuel].toString())
-        }
-        builderFuel.setNegativeButton("Cancel") { _: DialogInterface, _ ->
-            binding.fuelInput.setText("")
-        }
-        builderFuel.show()
     }
 
+    @RequiresApi(Build.VERSION_CODES.M)
+    private fun isInternetConnected(): Boolean {
+        val connectivityManager =
+            context?.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val activeNetwork = connectivityManager.activeNetworkInfo
+        if (activeNetwork != null) {
+            val capabilities =
+                connectivityManager.getNetworkCapabilities(connectivityManager.activeNetwork)
+            if (capabilities != null) {
+                when {
+                    capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> return true
+                    capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) -> return true
+                    capabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET) -> return true
+                    capabilities.hasTransport(NetworkCapabilities.TRANSPORT_VPN) -> return true
+                }
+            }
+        }
+        return false
+    }
+
+    @RequiresApi(Build.VERSION_CODES.M)
     private fun setTypeCar() {
-        val listTypeCar = viewModel.getType()
-        val itemsTypes = arrayOfNulls<CharSequence>(listTypeCar.size)
-        for (i in listTypeCar.indices) {
-            itemsTypes[i] = listTypeCar[i]
+        if (isInternetConnected()) {
+            val listTypeCar = viewModel.getType()
+            val itemsTypes = arrayOfNulls<CharSequence>(listTypeCar.size)
+            for (i in listTypeCar.indices) {
+                itemsTypes[i] = listTypeCar[i]
+            }
+            val builderTypes: AlertDialog.Builder = AlertDialog.Builder(context)
+            builderTypes.setTitle(R.string.type_cars)
+            builderTypes.setSingleChoiceItems(
+                itemsTypes,
+                viewModel.checkedItemType
+            ) { _: DialogInterface, which ->
+                viewModel.checkedItemType = which
+            }
+            builderTypes.setItems(itemsTypes) { _: DialogInterface, which ->
+                viewModel.checkedItemType = which
+            }
+            builderTypes.setPositiveButton("Ok") { _: DialogInterface, _ ->
+                binding.typeInput.setText(itemsTypes[viewModel.checkedItemType].toString())
+            }
+            builderTypes.setNegativeButton("Cancel") { _: DialogInterface, _ ->
+                binding.typeInput.setText("")
+            }
+            builderTypes.show()
+        } else {
+            Toast.makeText(context, R.string.no_internet, Toast.LENGTH_SHORT).show()
         }
-        val builderTypes: AlertDialog.Builder = AlertDialog.Builder(context)
-        builderTypes.setTitle(R.string.cars_model)
-        builderTypes.setSingleChoiceItems(
-            itemsTypes,
-            viewModel.checkedItemType
-        ) { _: DialogInterface, which ->
-            viewModel.checkedItemType = which
-        }
-        builderTypes.setItems(itemsTypes) { _: DialogInterface, which ->
-            viewModel.checkedItemType = which
-        }
-        builderTypes.setPositiveButton("Ok") { _: DialogInterface, _ ->
-            binding.typeInput.setText(itemsTypes[viewModel.checkedItemType].toString())
-        }
-        builderTypes.setNegativeButton("Cancel") { _: DialogInterface, _ ->
-            binding.typeInput.setText("")
-        }
-        builderTypes.show()
     }
-
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
