@@ -206,6 +206,26 @@ class AddCarsFragment : Fragment() {
     )
 
     @RequiresApi(Build.VERSION_CODES.M)
+    private fun isInternetConnected(): Boolean {
+        val connectivityManager =
+            context?.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val activeNetwork = connectivityManager.activeNetworkInfo
+        if (activeNetwork != null) {
+            val capabilities =
+                connectivityManager.getNetworkCapabilities(connectivityManager.activeNetwork)
+            if (capabilities != null) {
+                when {
+                    capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> return true
+                    capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) -> return true
+                    capabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET) -> return true
+                    capabilities.hasTransport(NetworkCapabilities.TRANSPORT_VPN) -> return true
+                }
+            }
+        }
+        return false
+    }
+
+    @RequiresApi(Build.VERSION_CODES.M)
     private fun setFuelCar() {
         if (isInternetConnected()) {
             val listFuelCar = viewModel.getFuel()
@@ -228,32 +248,14 @@ class AddCarsFragment : Fragment() {
                 binding.fuelInput.setText(itemsFuel[viewModel.checkedItemFuel].toString())
             }
             builderFuel.setNegativeButton("Cancel") { _: DialogInterface, _ ->
+                viewModel.checkedItemFuel = -1
                 binding.fuelInput.setText("")
             }
             builderFuel.show()
         } else {
-            Toast.makeText(context, "No Internet", Toast.LENGTH_SHORT).show()
+           val toast = Toast.makeText(context, R.string.no_internet, Toast.LENGTH_SHORT)
+            toast.show()
         }
-    }
-
-    @RequiresApi(Build.VERSION_CODES.M)
-    private fun isInternetConnected(): Boolean {
-        val connectivityManager =
-            context?.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-        val activeNetwork = connectivityManager.activeNetworkInfo
-        if (activeNetwork != null) {
-            val capabilities =
-                connectivityManager.getNetworkCapabilities(connectivityManager.activeNetwork)
-            if (capabilities != null) {
-                when {
-                    capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> return true
-                    capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) -> return true
-                    capabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET) -> return true
-                    capabilities.hasTransport(NetworkCapabilities.TRANSPORT_VPN) -> return true
-                }
-            }
-        }
-        return false
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
@@ -279,11 +281,13 @@ class AddCarsFragment : Fragment() {
                 binding.typeInput.setText(itemsTypes[viewModel.checkedItemType].toString())
             }
             builderTypes.setNegativeButton("Cancel") { _: DialogInterface, _ ->
+                viewModel.checkedItemType = -1
                 binding.typeInput.setText("")
             }
             builderTypes.show()
         } else {
-            Toast.makeText(context, R.string.no_internet, Toast.LENGTH_SHORT).show()
+            val toast = Toast.makeText(context, R.string.no_internet, Toast.LENGTH_SHORT)
+            toast.show()
         }
     }
     override fun onDestroyView() {
