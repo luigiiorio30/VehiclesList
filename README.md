@@ -30,6 +30,7 @@ https://github.com/Apocalixs-Nick/type-fuel-car.json
 
 ## Tested on:
 
+- [Samsung Galaxy S5](https://www.gsmarena.com/samsung_galaxy_s5-6033.php)
 - [OnePlus 5](https://www.gsmarena.com/oneplus_5-8647.php)
 - [OnePlus 6](https://www.gsmarena.com/oneplus_6-9109.php)
 - [OnePlus 6t](https://www.gsmarena.com/oneplus_6t-9350.php)
